@@ -52,7 +52,7 @@ Resources:
     rFrontendContentBucket:
         Type: AWS::S3::Bucket
         Properties:
-            BucketName: !Sub ${pSolutionNaming}-${pLocale}-docroot-s3
+            BucketName: beta.tutorialinaja.tech
             AccessControl: BucketOwnerFullControl
             AccessControl: PublicRead
             WebsiteConfiguration:
