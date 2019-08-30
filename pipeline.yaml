@@ -394,7 +394,8 @@ Resources:
                           - npm install
                           - npm run build
                     artifacts:
-                      files: "build/**/*"
+                      files: "**/*"
+                      base-directory: build
             TimeoutInMinutes: 10
             Tags:
                 - Key: Name
