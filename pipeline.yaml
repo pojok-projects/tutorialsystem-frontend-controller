@@ -54,6 +54,9 @@ Resources:
         Properties:
             BucketName: !Sub ${pSolutionNaming}-${pLocale}-docroot-s3
             AccessControl: BucketOwnerFullControl
+            AccessControl: PublicRead
+            WebsiteConfiguration:
+                IndexDocument: index.html
         DeletionPolicy: Delete
 
     rArtifactStoreBucketPolicy:
