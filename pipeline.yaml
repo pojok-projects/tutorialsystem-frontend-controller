@@ -52,7 +52,7 @@ Resources:
     rFrontendContentBucket:
         Type: AWS::S3::Bucket
         Properties:
-            BucketName: !Sub ${pSolutionNaming}-${pLocale}-frontend-s3
+            BucketName: !Sub ${pSolutionNaming}-${pLocale}-docroot-s3
             AccessControl: BucketOwnerFullControl
         DeletionPolicy: Delete
 
@@ -370,14 +370,8 @@ Resources:
                 ComputeType: BUILD_GENERAL1_SMALL
                 Image: aws/codebuild/standard:2.0
                 EnvironmentVariables:
-                    - Name: S3Bucket
-                      Value: !Ref rArtifactStoreBucket
-                    - Name: SolutionNaming
-                      Value: !Sub ${pSolutionNaming}
-                    - Name: PhpLayerS3Bucket
-                      Value: php-layer-706415835325-ap-southeast-1-s3
-                    - Name: PhpLayerS3Key
-                      Value: php_layer_713.zip
+                    - Name: FrontendContentBucket
+                      Value: !Ref rFrontendContentBucket
             Source:
                 Type: CODEPIPELINE
                 BuildSpec: |
@@ -393,6 +387,7 @@ Resources:
                           - ls -R
                           - npm install
                           - npm run build
+                          - aws s3 rm --recursive "s3://${FrontendContentBucket}/" 
                     artifacts:
                       files: "**/*"
                       base-directory: build
