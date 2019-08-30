@@ -391,6 +391,7 @@ Resources:
                           - set -ex
                           - printenv
                           - ls -R
+                          - npm install
                           - npm run build
                     artifacts:
                       files: "build/**/*"
