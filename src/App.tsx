@@ -6,7 +6,6 @@ import DrawerMenu from './components/drawer/Drawer'
 import VideoGllery from './components/video-gallery/VideoGallery'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-
 export default class App extends React.Component {
   state = {
     open: false
