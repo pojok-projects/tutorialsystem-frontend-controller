@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.navbar .menu-icon {
+    margin: 0;
+}
+
+.form-search {
+    display: flex;
+    margin-left: 100px;
+    width: 500px;
+}
+.form-search >div { flex: 1; }
+.form-search input {
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.navbar-tool{
+    width: auto !important;
+    margin-right: 25px;
+}
