@@ -9,9 +9,8 @@ const App: React.FC = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Tutorialinaja.tech 
-        </p>
-        <p>
-        Powered by: 
+          <br/>
+        Powered by
         <a
           className="App-link"
           href="https://reactjs.org"
