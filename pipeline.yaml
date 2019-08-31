@@ -53,7 +53,7 @@ Resources:
         Type: AWS::S3::Bucket
         Properties:
             BucketName: beta.tutorialinaja.tech
-            AccessControl: PublicRead
+            AccessControl: BucketOwnerFullControl
             WebsiteConfiguration:
                 IndexDocument: index.html
         DeletionPolicy: Delete
