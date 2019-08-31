@@ -8,7 +8,10 @@ const App: React.FC = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Tutorialinaja.tech Powered by: 
+          Tutorialinaja.tech 
+        </p>
+        <p>
+        Powered by: 
         <a
           className="App-link"
           href="https://reactjs.org"
