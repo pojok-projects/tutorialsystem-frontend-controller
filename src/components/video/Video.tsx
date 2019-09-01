@@ -3,11 +3,13 @@ import Grid from '@material-ui/core/Grid'
 import Icon from '@material-ui/core/IconButton'
 // assets
 import video from '../../sample/videos/sample.mp4';
+
 //icon
 import Like from '@material-ui/icons/ThumbUp'
 import Dislike from '@material-ui/icons/ThumbDown'
 import Share from '@material-ui/icons/Share'
 import Report from '@material-ui/icons/Flag'
+
 // css
 import './Video.css'
 export default class Video extends React.Component {

@@ -5,8 +5,10 @@ import Grid from '@material-ui/core/Grid';
 // components
 import Video from '../video/Video';
 import Recomended from '../recomended/Recomended';
+
 // css
 import './Wrapper.css'
+
 export default class Wrapper extends React.Component {
   render() {
     return (
@@ -16,7 +18,7 @@ export default class Wrapper extends React.Component {
             <Video />
           </Grid>
           <Grid item lg={4}>
-            <Recomended/>
+            <Recomended />
           </Grid>
         </Grid>
       </Container>
