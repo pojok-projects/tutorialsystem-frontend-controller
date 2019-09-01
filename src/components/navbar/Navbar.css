@@ -1,8 +1,4 @@
 .navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
     padding: 10px 15px;
 }
 
@@ -12,8 +8,7 @@
 
 .form-search {
     display: flex;
-    margin-left: 100px;
-    width: 500px;
+    width: 100%;
 }
 .form-search >div { flex: 1; }
 .form-search input {
@@ -21,7 +16,6 @@
     padding: 10px 20px;
     border-radius: 25px;
 }
-
 .navbar-tool{
     width: auto !important;
     margin-right: 25px;

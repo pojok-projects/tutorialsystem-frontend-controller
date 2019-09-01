@@ -11,8 +11,8 @@ export default class NavbarTool extends React.Component {
 
     render() {  
         return (
-            <Grid container justify="center" alignItems="center" className="navbar-tool">
-                <IconButton>
+            <Grid container justify="flex-end" alignItems="center" className="navbar-tool">
+                <IconButton >
                     <AppsIcon />
                 </IconButton>
                 <IconButton>
