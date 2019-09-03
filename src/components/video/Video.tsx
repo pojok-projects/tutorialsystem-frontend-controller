@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid'
 import Icon from '@material-ui/core/IconButton'
 // assets
-import video from '../../sample/videos/sample.mp4';
+import video from '../../sample/videos/sample.mp4'
 
 //icon
 import Like from '@material-ui/icons/ThumbUp'
@@ -10,11 +10,15 @@ import Dislike from '@material-ui/icons/ThumbDown'
 import Share from '@material-ui/icons/Share'
 import Report from '@material-ui/icons/Flag'
 
+//import component
+import Comment from '../comment/Comment'
+
 // css
 import './Video.css'
 export default class Video extends React.Component {
   render() {
     return (
+      <>
       <div className="video-player">
         <video src={video} controls></video>
         <h2>SAMSUNG Galaxy Hm</h2>
@@ -55,6 +59,8 @@ export default class Video extends React.Component {
         </Grid>
         <hr/>
       </div>
+      <Comment />
+      </>
     )
   }
 }

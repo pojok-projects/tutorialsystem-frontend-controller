@@ -8,7 +8,9 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import FeaturedVideoIcon from '@material-ui/icons/FeaturedVideo';
 import './Drawer.css'
+
 
 type DrawerMenuProps = {
     open : boolean;
@@ -33,6 +35,10 @@ export default class DrawerMenu extends React.Component<DrawerMenuProps> {
                 <ListItem button key="Home">
                     <ListItemIcon><HomeIcon /></ListItemIcon>
                     <ListItemText primary="Home" />
+                </ListItem>
+                <ListItem button key="Video Gallery">
+                    <ListItemIcon><FeaturedVideoIcon /></ListItemIcon>
+                    <ListItemText primary="Video Gallery" />
                 </ListItem>
             </List>
         </Drawer>)

@@ -14,20 +14,18 @@ type NavbarProps = {
 }
 
 export default class Navbar extends React.Component<NavbarProps> {
-
-
   render() {
     return (
       <AppBar
         color="default"
         position="fixed" >
         <Grid container className="navbar">
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <IconButton className="menu-icon" color="inherit" edge="start" onClick={this.props.onClickMenu}>
               <MenuIcon />
             </IconButton>
           </Grid>
-          <Grid item xs={11}>
+          <Grid item xs={10}>
             <Grid container justify="space-between" >
             <Hidden only={['xs']}>
             <Grid item  sm={8} md={7} className="form-search">
