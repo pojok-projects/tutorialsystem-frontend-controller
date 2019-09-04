@@ -1,9 +1,6 @@
 import React from 'react'
-import Drawer from '@material-ui/core/Drawer'
-import Divider from '@material-ui/core/Divider'
-import IconButton from '@material-ui/core/IconButton'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import HomeIcon from '@material-ui/icons/Home'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -20,18 +17,11 @@ type DrawerMenuProps = {
 
 export default class DrawerMenu extends React.Component<DrawerMenuProps> {
     render() {
-        return (<Drawer
+        return (<SwipeableDrawer
             style={ (this.props.open) ? { display:"block" } : { display:"none" } } 
-            variant="persistent"
-            anchor="left"
+            onClose={this.props.onClickMenu}
+            onOpen={this.props.onClickMenu}
             open={this.props.open} >
-            <div style={{ padding:"10px 15px", width:"200px" }}>
-                
-            <IconButton onClick={this.props.onClickMenu}>
-                <ChevronLeftIcon />
-            </IconButton>
-            </div>
-            <Divider />
             <List className="list-menu">
                 <ListItem button key="Home">
                     <ListItemIcon><HomeIcon /></ListItemIcon>
@@ -42,6 +32,6 @@ export default class DrawerMenu extends React.Component<DrawerMenuProps> {
                     <Link to="/gallery" ><ListItemText primary="Video Gallery" /> </Link>
                 </ListItem>
             </List>
-        </Drawer>)
+        </SwipeableDrawer>)
     }
 }

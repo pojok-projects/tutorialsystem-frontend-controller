@@ -1,9 +1,5 @@
-.MuiDrawer-root.MuiDrawer-docked{
-    height: 100vh;
-    position: fixed;
-    background: #3e2f2f2b;
-    width: 100vw;
-    z-index: 9999;
+.list-menu {
+    width: 250px;
 }
 
 .list-menu a[href]{
