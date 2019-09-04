@@ -10,6 +10,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import FeaturedVideoIcon from '@material-ui/icons/FeaturedVideo';
 import './Drawer.css'
+import { Link } from 'react-router-dom'
 
 
 type DrawerMenuProps = {
@@ -31,14 +32,14 @@ export default class DrawerMenu extends React.Component<DrawerMenuProps> {
             </IconButton>
             </div>
             <Divider />
-            <List >
+            <List className="list-menu">
                 <ListItem button key="Home">
                     <ListItemIcon><HomeIcon /></ListItemIcon>
-                    <ListItemText primary="Home" />
+                    <Link to="/"> <ListItemText primary="Home" /> </Link>
                 </ListItem>
                 <ListItem button key="Video Gallery">
                     <ListItemIcon><FeaturedVideoIcon /></ListItemIcon>
-                    <ListItemText primary="Video Gallery" />
+                    <Link to="/gallery" ><ListItemText primary="Video Gallery" /> </Link>
                 </ListItem>
             </List>
         </Drawer>)

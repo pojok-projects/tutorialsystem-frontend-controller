@@ -5,3 +5,8 @@
     width: 100vw;
     z-index: 9999;
 }
+
+.list-menu a[href]{
+    text-decoration: none;
+    color: inherit;
+}

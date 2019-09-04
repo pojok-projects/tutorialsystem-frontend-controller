@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/navbar/Navbar'
 import Wrapper from './components/container/Wrapper';
 import DrawerMenu from './components/drawer/Drawer'
+import VideoGllery from './components/video-gallery/VideoGallery'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default class App extends React.Component {
   state = {
@@ -17,13 +18,15 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <>
+      <Router>
         <Navbar onClickMenu={this.handleToggleMenu} />
         <DrawerMenu open={this.state.open} onClickMenu={this.handleToggleMenu} />
         <main>
-          <Wrapper />
+        <Route exact path="/" component={Wrapper} />
+        <Route path="/gallery" component={VideoGllery} />
+          {/* <Wrapper /> */}
         </main>
-      </>
+      </Router>
     )
   }
 }
