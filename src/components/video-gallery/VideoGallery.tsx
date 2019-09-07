@@ -23,8 +23,8 @@ export default class VideoGllery extends React.Component {
               <Divider />
               <CardContent>
                 <Grid container spacing={3}>
-                  {[0,1,2,3,4,5,6,7,8].map(value =>
-                   <Grid item lg={4} className="video-gallery">
+                  {[0,1,2,3,4,5,6,7,8].map( (value, idx) =>
+                   <Grid key={idx} item sm={6} md={4}  className="video-gallery">
                      <video src={video} controls></video>
                      <Typography variant="h6" gutterBottom>
                        Lorem ipsum
@@ -42,8 +42,8 @@ export default class VideoGllery extends React.Component {
                 </Typography>
               <Divider />
               <CardContent>
-                <Grid container>
-                  <Grid item lg={12}>
+                <Grid container spacing={3}>
+                  <Grid item sm={6} md={4} lg={12} >
                     <div className="wrapper-recomended">
                       <Grid container spacing={3} className="recomended-video">
                         <Grid item lg={5}>
@@ -59,7 +59,7 @@ export default class VideoGllery extends React.Component {
                       </Grid>
                     </div>
                   </Grid>
-                  <Grid item lg={12}>
+                  <Grid item sm={6} md={4} lg={12} >
                     <div className="wrapper-recomended">
                       <Grid container spacing={3} className="recomended-video">
                         <Grid item lg={5}>
@@ -75,7 +75,7 @@ export default class VideoGllery extends React.Component {
                       </Grid>
                     </div>
                   </Grid>
-                  <Grid item lg={12}>
+                  <Grid item sm={6} md={4} lg={12} >
                     <div className="wrapper-recomended">
                       <Grid container spacing={3} className="recomended-video">
                         <Grid item lg={5}>
