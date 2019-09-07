@@ -11,8 +11,8 @@ export default class Recomended extends React.Component {
     return (
       <div>
         <h4>Recomended</h4>
-        <Grid container>
-          <Grid item lg={12}>
+        <Grid container spacing={3}>
+          <Grid item sm={6} md={12} lg={12} >
             <div className="wrapper-recomended">
               <Grid container spacing={3} className="recomended-video">
                 <Grid item lg={5}>
@@ -28,7 +28,7 @@ export default class Recomended extends React.Component {
               </Grid>
             </div>
           </Grid>
-          <Grid item lg={12}>
+          <Grid item sm={6} md={12} lg={12} >
             <div className="wrapper-recomended">
               <Grid container spacing={3} className="recomended-video">
                 <Grid item lg={5}>
@@ -44,7 +44,7 @@ export default class Recomended extends React.Component {
               </Grid>
             </div>
           </Grid>
-          <Grid item lg={12}>
+          <Grid item sm={6} md={12} lg={12} >
             <div className="wrapper-recomended">
               <Grid container spacing={3} className="recomended-video">
                 <Grid item lg={5}>
