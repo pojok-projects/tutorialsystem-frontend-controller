@@ -8,12 +8,11 @@ export default class CommentPost extends Component{
   render(){
     return(
         <Grid container direction="column">
-          <Grid container direction="row" alignItems="center" justify="space-between">
+          <Grid container direction="row" spacing={2} alignItems="center" justify="space-between">
             <UserComment />
             <Grid item xs>
             <TextField
             id="standard-full-width"
-            style={{ margin: 8 }}
             placeholder="Add a public comment"
             fullWidth
             InputLabelProps={{
@@ -23,12 +22,9 @@ export default class CommentPost extends Component{
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="flex-end"> 
-              <Button size="medium">
-              cancel
-              </Button>
+              <Button size="medium">cancel</Button>&nbsp;
               <Button variant="contained" size="medium" color="primary">
-              Submit
-              </Button>
+              Submit</Button>
         </Grid>
       </Grid>
     )

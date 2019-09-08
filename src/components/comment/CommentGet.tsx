@@ -9,7 +9,7 @@ import Dislike from '@material-ui/icons/ThumbDown'
 export default class CommentGet extends Component {
   render(){
     return(
-      <Grid container alignItems="flex-start" spacing={3}>
+      <Grid container alignItems="flex-start" spacing={2}>
         <UserComment />
         <Grid item xs>
         <Typography variant="subtitle1">
