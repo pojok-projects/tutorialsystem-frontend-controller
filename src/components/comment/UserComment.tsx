@@ -7,7 +7,7 @@ import AvatarUser from '../../images/1.jpg'
 export default class UserComment extends Component {
   render() {
     return (
-      <Grid item xs={1}>
+      <Grid item >
         <Avatar alt="Remy Sharp" src={AvatarUser} />
       </Grid>
     )
