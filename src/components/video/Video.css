@@ -11,3 +11,10 @@
 .action-icons span{
   font-size: 14px;
 }
+.action-icons button {
+  color: #8a8a8a;
+}
+
+.border-comment {
+  margin: 10px 0 !important;
+}
