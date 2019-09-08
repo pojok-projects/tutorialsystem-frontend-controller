@@ -9,23 +9,23 @@ import Dislike from '@material-ui/icons/ThumbDown'
 export default class CommentGet extends Component {
   render(){
     return(
-      <Grid container>
-        <Grid item lg={1}>
-          <UserComment />
-        </Grid>
-        <Grid item lg={11}>
-          <Typography variant="subtitle1">
+      <Grid container alignItems="flex-start" spacing={2}>
+        <UserComment />
+        <Grid item xs>
+        <Typography variant="subtitle1">
             John Doe
           </Typography>
           <Typography variant="subtitle1">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </Typography>
+          <Grid className="action-react">
           <Icon>
             <Like style={{ fontSize: 16 }}></Like>
           </Icon>
           <Icon>
             <Dislike style={{ fontSize: 16 }}></Dislike>
           </Icon>
+        </Grid>
         </Grid>
       </Grid>
     )
