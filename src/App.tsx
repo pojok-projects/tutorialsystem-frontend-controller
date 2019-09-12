@@ -32,7 +32,6 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Wrapper} />
           <Route path="/gallery" component={VideoGallery} />
-          <Route path="/index.html" component={Wrapper} />
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
