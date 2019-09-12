@@ -5,12 +5,7 @@ import Wrapper from "./components/container/Wrapper";
 import NotFound from "./components/container/NotFound";
 import DrawerMenu from "./components/drawer/Drawer";
 import VideoGallery from "./components/video-gallery/VideoGallery";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 export default class App extends React.Component {
   state = {
@@ -31,8 +26,8 @@ export default class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" component={Wrapper} />
+          <Route path="/index.html" component={Wrapper} />
           <Route path="/gallery" component={VideoGallery} />
-          <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
