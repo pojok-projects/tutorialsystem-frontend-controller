@@ -30,8 +30,8 @@ export default class App extends React.Component {
           onClickMenu={this.handleToggleMenu}
         />
         <Switch>
-          <Route exact path="/" component={Wrapper} />
-          <Route path="/gallery" component={VideoGallery} />
+          <Route exact path="/" component={VideoGallery} />
+          <Route path="/view" component={Wrapper} />
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>

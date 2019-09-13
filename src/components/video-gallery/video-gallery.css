@@ -4,3 +4,13 @@
   width: 100%;
   cursor: pointer;
 }
+
+.video-gallery-title {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
