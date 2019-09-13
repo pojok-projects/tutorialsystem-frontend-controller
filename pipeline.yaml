@@ -58,6 +58,13 @@ Resources:
         ErrorDocument: index.html
     DeletionPolicy: Delete
 
+  rMediaContentBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: media.tutorialinaja.tech
+      AccessControl: BucketOwnerFullControl
+    DeletionPolicy: Delete
+
   rArtifactStoreBucketPolicy:
     Type: "AWS::S3::BucketPolicy"
     DependsOn:
@@ -95,6 +102,23 @@ Resources:
             Resource:
               - !Join ["", ["arn:aws:s3:::", !Ref rFrontendContentBucket]]
               - !Join ["", ["arn:aws:s3:::", !Ref rFrontendContentBucket, "/*"]]
+
+  rMediaContentBucketPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    DependsOn:
+      - rCodeBuildRole
+      - rCodePipelineRole
+      - rCloudFormationRole
+    Properties:
+      Bucket: !Ref rMediaContentBucket
+      PolicyDocument:
+        Statement:
+          - Principal: "*"
+            Action: "s3:GetObject"
+            Effect: "Allow"
+            Resource:
+              - !Join ["", ["arn:aws:s3:::", !Ref rMediaContentBucket]]
+              - !Join ["", ["arn:aws:s3:::", !Ref rMediaContentBucket, "/*"]]
 
   rCodeBuildRole:
     Type: AWS::IAM::Role
