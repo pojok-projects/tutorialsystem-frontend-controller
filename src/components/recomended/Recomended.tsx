@@ -1,18 +1,19 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid'
+import React from "react";
+import Grid from "@material-ui/core/Grid";
 
 //assets
 import thumbnail from "../../images/recomended-thumbnail.jpg";
 
 // css
-import './Recomended.css'
+import "./Recomended.css";
+import VideoUploader from "../container/VideoUploader";
 export default class Recomended extends React.Component {
   render() {
     return (
       <div>
         <h4>Recomended</h4>
         <Grid container spacing={3}>
-          <Grid item sm={6} md={12} lg={12} >
+          <Grid item sm={6} md={12} lg={12}>
             <div className="wrapper-recomended">
               <Grid container spacing={3} className="recomended-video">
                 <Grid item lg={5}>
@@ -22,13 +23,15 @@ export default class Recomended extends React.Component {
                   <div className="recomended-desc">
                     <h6>Beautyfull Florest</h6>
                     <p>Jungle Warior</p>
-                    <span><i>400.000x views</i></span>
+                    <span>
+                      <i>400.000x views</i>
+                    </span>
                   </div>
                 </Grid>
               </Grid>
             </div>
           </Grid>
-          <Grid item sm={6} md={12} lg={12} >
+          <Grid item sm={6} md={12} lg={12}>
             <div className="wrapper-recomended">
               <Grid container spacing={3} className="recomended-video">
                 <Grid item lg={5}>
@@ -38,13 +41,15 @@ export default class Recomended extends React.Component {
                   <div className="recomended-desc">
                     <h6>Beautyfull Florest</h6>
                     <p>Jungle Warior</p>
-                    <span><i>400.000x views</i></span>
+                    <span>
+                      <i>400.000x views</i>
+                    </span>
                   </div>
                 </Grid>
               </Grid>
             </div>
           </Grid>
-          <Grid item sm={6} md={12} lg={12} >
+          <Grid item sm={6} md={12} lg={12}>
             <div className="wrapper-recomended">
               <Grid container spacing={3} className="recomended-video">
                 <Grid item lg={5}>
@@ -54,14 +59,17 @@ export default class Recomended extends React.Component {
                   <div className="recomended-desc">
                     <h6>Beautyfull Florest</h6>
                     <p>Jungle Warior</p>
-                    <span><i>400.000x views</i></span>
+                    <span>
+                      <i>400.000x views</i>
+                    </span>
                   </div>
                 </Grid>
               </Grid>
             </div>
           </Grid>
         </Grid>
+        <VideoUploader />
       </div>
-    )
+    );
   }
 }
