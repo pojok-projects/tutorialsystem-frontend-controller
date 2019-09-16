@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar'
 import Wrapper from './components/container/Wrapper';
 import DrawerMenu from './components/drawer/Drawer'
 import VideoGllery from './components/video-gallery/VideoGallery'
+import VideoUplaod from './components/video-uploaded/VideoUpload'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default class App extends React.Component {
@@ -24,6 +25,7 @@ export default class App extends React.Component {
         <main>
             <Route exact path="/" component={Wrapper} />
             <Route path="/gallery" component={VideoGllery} />
+            <Route path="/upload" component={VideoUplaod} />
         </main>
       </Router>
     )

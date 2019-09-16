@@ -6,32 +6,37 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import FeaturedVideoIcon from '@material-ui/icons/FeaturedVideo';
+import PublishIcon from '@material-ui/icons/Publish'
 import './Drawer.css'
 import { Link } from 'react-router-dom'
 
 
 type DrawerMenuProps = {
-    open : boolean;
-    onClickMenu() : void
+  open: boolean;
+  onClickMenu(): void
 }
 
 export default class DrawerMenu extends React.Component<DrawerMenuProps> {
-    render() {
-        return (<SwipeableDrawer
-            style={ (this.props.open) ? { display:"block" } : { display:"none" } } 
-            onClose={this.props.onClickMenu}
-            onOpen={this.props.onClickMenu}
-            open={this.props.open} >
-            <List className="list-menu">
-                <ListItem button key="Home">
-                    <ListItemIcon><HomeIcon /></ListItemIcon>
-                    <Link to="/"> <ListItemText primary="Home" /> </Link>
-                </ListItem>
-                <ListItem button key="Video Gallery">
-                    <ListItemIcon><FeaturedVideoIcon /></ListItemIcon>
-                    <Link to="/gallery" ><ListItemText primary="Video Gallery" /> </Link>
-                </ListItem>
-            </List>
-        </SwipeableDrawer>)
-    }
+  render() {
+    return (<SwipeableDrawer
+      style={(this.props.open) ? { display: "block" } : { display: "none" }}
+      onClose={this.props.onClickMenu}
+      onOpen={this.props.onClickMenu}
+      open={this.props.open} >
+      <List className="list-menu">
+        <ListItem button key="Home">
+          <ListItemIcon><HomeIcon /></ListItemIcon>
+          <Link to="/"> <ListItemText primary="Home" /> </Link>
+        </ListItem>
+        <ListItem button key="Video Gallery">
+          <ListItemIcon><FeaturedVideoIcon /></ListItemIcon>
+          <Link to="/gallery" ><ListItemText primary="Video Gallery" /> </Link>
+        </ListItem>
+        <ListItem button key="Video Uploaded">
+          <ListItemIcon><PublishIcon /></ListItemIcon>
+          <Link to="/upload" ><ListItemText primary="Video Uploaded" /> </Link>
+        </ListItem>
+      </List>
+    </SwipeableDrawer>)
+  }
 }
