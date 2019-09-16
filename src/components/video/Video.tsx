@@ -9,7 +9,7 @@ import video from '../../sample/videos/sample.mp4'
 //icon
 import Like from '@material-ui/icons/ThumbUp'
 import Dislike from '@material-ui/icons/ThumbDown'
-import Share from '@material-ui/icons/Share'  
+import Share from '@material-ui/icons/Share'
 import Report from '@material-ui/icons/Flag'
 import Divider from '@material-ui/core/Divider'
 
@@ -30,27 +30,27 @@ export default class Video extends React.Component {
         </Typography>
         <Typography variant="body2">
           190.000x views
-        </Typography>        
+        </Typography>
         <Grid container justify="flex-end" alignItems="center" className="action-icons">
-                <Button size="small">
-                  <Like></Like>&nbsp;
+          <Button size="small">
+            <Like></Like>&nbsp;
                   <span>140</span>
-                </Button>
-                <Button size="small">
-                  <Dislike></Dislike>&nbsp;
+          </Button>
+          <Button size="small">
+            <Dislike></Dislike>&nbsp;
                   <span>10</span>
-                </Button>
-                <Button size="small">
-                  <Share></Share>&nbsp;
+          </Button>
+          <Button size="small">
+            <Share></Share>&nbsp;
                   <span>Share</span>
-                </Button>
-                <Button size="small">
-                  <Report></Report>&nbsp;
+          </Button>
+          <Button size="small">
+            <Report></Report>&nbsp;
                   <span>Report</span>
-                </Button>
+          </Button>
         </Grid>
         <Divider className="border-comment" />
-      <Comment />
+        <Comment />
       </Grid>
     )
   }

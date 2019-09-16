@@ -33,7 +33,10 @@ export default class VideoGallery extends React.Component {
                     >
                       <video src={video} controls></video>
                       <Typography variant="h6" gutterBottom>
-                        <Link to="/view" className="video-gallery-title">
+                        <Link
+                          to="/video-playlist"
+                          className="video-gallery-title"
+                        >
                           Lorem ipsum
                         </Link>
                       </Typography>

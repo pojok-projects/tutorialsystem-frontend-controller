@@ -1,6 +1,7 @@
 import React from "react";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import HomeIcon from "@material-ui/icons/Home";
+import PublishIcon from "@material-ui/icons/Publish";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -30,6 +31,14 @@ export default class DrawerMenu extends React.Component<DrawerMenuProps> {
             </ListItemIcon>
             <Link to="/">
               <ListItemText primary="Home" />
+            </Link>
+          </ListItem>
+          <ListItem button key="Video Uploaded">
+            <ListItemIcon>
+              <PublishIcon />
+            </ListItemIcon>
+            <Link to="/upload">
+              <ListItemText primary="Video Uploaded" />
             </Link>
           </ListItem>
         </List>

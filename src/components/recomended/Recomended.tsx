@@ -6,69 +6,41 @@ import thumbnail from "../../images/recomended-thumbnail.jpg";
 
 // css
 import "./Recomended.css";
-import VideoUploader from "../container/VideoUploader";
+import { Link } from "react-router-dom";
 export default class Recomended extends React.Component {
   render() {
     return (
       <div>
         <h4>Recomended</h4>
         <Grid container spacing={3}>
-          <Grid item sm={6} md={12} lg={12}>
-            <div className="wrapper-recomended">
-              <Grid container spacing={3} className="recomended-video">
-                <Grid item lg={5}>
-                  <img src={thumbnail} alt={thumbnail} width="100%" />
+          {[0, 1, 2].map(value => (
+            <Grid item sm={6} md={12} lg={12}>
+              <div className="wrapper-recomended">
+                <Grid container spacing={3} className="recomended-video">
+                  <Grid item lg={5}>
+                    <Link to="/video-playlist" className="video-gallery-title">
+                      <img src={thumbnail} alt={thumbnail} width="100%" />
+                    </Link>
+                  </Grid>
+                  <Grid item lg={7}>
+                    <div className="recomended-desc">
+                      <Link
+                        to="/video-playlist"
+                        className="video-gallery-title"
+                      >
+                        <h6>Beautyfull Florest</h6>
+                      </Link>
+                      <p>Jungle Warior</p>
+                      <span>
+                        <i>400.000x views</i>
+                      </span>
+                    </div>
+                  </Grid>
                 </Grid>
-                <Grid item lg={7}>
-                  <div className="recomended-desc">
-                    <h6>Beautyfull Florest</h6>
-                    <p>Jungle Warior</p>
-                    <span>
-                      <i>400.000x views</i>
-                    </span>
-                  </div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
-          <Grid item sm={6} md={12} lg={12}>
-            <div className="wrapper-recomended">
-              <Grid container spacing={3} className="recomended-video">
-                <Grid item lg={5}>
-                  <img src={thumbnail} alt={thumbnail} width="100%" />
-                </Grid>
-                <Grid item lg={7}>
-                  <div className="recomended-desc">
-                    <h6>Beautyfull Florest</h6>
-                    <p>Jungle Warior</p>
-                    <span>
-                      <i>400.000x views</i>
-                    </span>
-                  </div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
-          <Grid item sm={6} md={12} lg={12}>
-            <div className="wrapper-recomended">
-              <Grid container spacing={3} className="recomended-video">
-                <Grid item lg={5}>
-                  <img src={thumbnail} alt={thumbnail} width="100%" />
-                </Grid>
-                <Grid item lg={7}>
-                  <div className="recomended-desc">
-                    <h6>Beautyfull Florest</h6>
-                    <p>Jungle Warior</p>
-                    <span>
-                      <i>400.000x views</i>
-                    </span>
-                  </div>
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
+              </div>
+            </Grid>
+          ))}
         </Grid>
-        <VideoUploader />
       </div>
     );
   }

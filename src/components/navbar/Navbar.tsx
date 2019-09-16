@@ -26,7 +26,7 @@ export default class Navbar extends React.Component<NavbarProps> {
             </IconButton>
           </Grid>
           <Grid item xs={10}>
-            <Grid container justify="space-between" >
+            <Grid container justify="space-between">
             <Hidden only={['xs']}>
             <Grid item  sm={8} md={7} className="form-search">
               <InputBase placeholder="Search…" />
@@ -39,7 +39,6 @@ export default class Navbar extends React.Component<NavbarProps> {
             </Grid>
           </Grid>
         </Grid>
-
       </AppBar>)
   }
 }

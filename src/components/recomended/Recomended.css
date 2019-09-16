@@ -8,7 +8,8 @@
 }
 
 .recomended-desc {
-  margin-top: -30px;
+  /* margin-top: -30px; */
+  margin-top: 2px;
   font-size: 14px;
   line-height: 10px;
 }

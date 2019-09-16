@@ -11,6 +11,8 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import VideoUpload from "./components/video-upload/VideoUpload";
+import VideoPlaylist from "./components/video-playlist/VideoPlaylist";
 
 export default class App extends React.Component {
   state = {
@@ -31,7 +33,9 @@ export default class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" component={VideoGallery} />
+          <Route path="/video-playlist" component={VideoPlaylist} />
           <Route path="/view" component={Wrapper} />
+          <Route path="/upload" component={VideoUpload} />
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
