@@ -38,7 +38,7 @@ class ListVideo extends Component {
       <Col md={4} xs={12} className='pt-3'>
         <Row>
           <Col xs={12}>
-            <h5><b>Lorem ipsum dolor sit amet consectetur.</b></h5>
+            <h5><b>Lorem ipsum dolor sit amet consectetur tes.</b></h5>
             <br />
           </Col>
           <UserUpload />
