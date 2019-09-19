@@ -5,6 +5,8 @@ import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
 import AppsIcon from '@material-ui/icons/Apps'
 import AvatarUser from '../../images/1.jpg'
+import SearchIcon from '@material-ui/icons/Search'
+import Hidden from '@material-ui/core/Hidden'
 
 export default class NavbarTool extends React.Component {
 
@@ -12,6 +14,9 @@ export default class NavbarTool extends React.Component {
     render() {  
         return (
             <Grid container justify="flex-end" alignItems="center" className="navbar-tool">
+                <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                    <IconButton><SearchIcon /></IconButton>
+                </Hidden>
                 <IconButton >
                     <AppsIcon />
                 </IconButton>

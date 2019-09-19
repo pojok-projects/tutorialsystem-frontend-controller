@@ -1,34 +1,45 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/navbar/Navbar'
-import Wrapper from './components/container/Wrapper';
-import DrawerMenu from './components/drawer/Drawer'
-import VideoGllery from './components/video-gallery/VideoGallery'
-import VideoUplaod from './components/video-uploaded/VideoUpload'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React from "react";
+import "./App.css";
+import Navbar from "./components/navbar/Navbar";
+import Wrapper from "./components/container/Wrapper";
+import NotFound from "./components/container/NotFound";
+import DrawerMenu from "./components/drawer/Drawer";
+import VideoGallery from "./components/video-gallery/VideoGallery";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import VideoUpload from "./components/video-upload/VideoUpload";
+import VideoPlaylist from "./components/video-playlist/VideoPlaylist";
 
 export default class App extends React.Component {
   state = {
     open: false
-  }
+  };
 
   handleToggleMenu = () => {
-    this.setState({ open: !this.state.open })
-  }
-
+    this.setState({ open: !this.state.open });
+  };
 
   render() {
     return (
       <Router>
         <Navbar onClickMenu={this.handleToggleMenu} />
-        <DrawerMenu open={this.state.open} onClickMenu={this.handleToggleMenu} />
-        <main>
-            <Route exact path="/" component={Wrapper} />
-            <Route path="/gallery" component={VideoGllery} />
-            <Route path="/upload" component={VideoUplaod} />
-        </main>
+        <DrawerMenu
+          open={this.state.open}
+          onClickMenu={this.handleToggleMenu}
+        />
+        <Switch>
+          <Route exact path="/" component={VideoGallery} />
+          <Route path="/video-playlist" component={VideoPlaylist} />
+          <Route path="/view" component={Wrapper} />
+          <Route path="/upload" component={VideoUpload} />
+          <Redirect from="/index.html" to="/" />
+          <Route path="*" component={NotFound} />
+        </Switch>
       </Router>
-    )
+    );
   }
 }
-

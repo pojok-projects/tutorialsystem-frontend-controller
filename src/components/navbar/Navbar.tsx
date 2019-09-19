@@ -19,26 +19,33 @@ export default class Navbar extends React.Component<NavbarProps> {
       <AppBar
         color="default"
         position="fixed" >
-        <Grid container className="navbar">
-          <Grid item xs={2}>
+        <Grid container className="navbar" alignItems="center"  justify="space-between">
+        <Grid item>
             <IconButton className="menu-icon" color="inherit" edge="start" onClick={this.props.onClickMenu}>
               <MenuIcon />
             </IconButton>
-          </Grid>
-          <Grid item xs={10}>
-            <Grid container justify="space-between">
-            <Hidden only={['xs']}>
-            <Grid item  sm={8} md={7} className="form-search">
-              <InputBase placeholder="Search…" />
-              <IconButton><SearchIcon /></IconButton>
-            </Grid>
-            </Hidden>
-            <Grid item xs={12} sm={4} md={5}>
-              <NavbarTool />
-            </Grid>
-            </Grid>
-          </Grid>
         </Grid>
+        <Grid item xs>
+            <Grid container alignItems="center"  justify="space-between">
+            <Grid item  xs>
+            <Hidden only={['xs']}>
+                <Grid container alignItems="center" justify="center" spacing={3}>
+                  <Grid item  sm={10} md={7}>
+                    <div className="form-search">
+                    <InputBase placeholder="Search…" />
+                    <IconButton><SearchIcon /></IconButton>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Hidden>
+              </Grid>
+              <Grid item>
+                <NavbarTool />
+              </Grid>
+            </Grid>
+          </Grid>
+          </Grid>
+        
       </AppBar>)
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid'
-import Icon from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 // assets
