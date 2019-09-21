@@ -7,6 +7,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import NavbarTool from './NavbarTool'
+import NavbarBottom from './NavbarBottom'
 import './Navbar.css'
 
 type NavbarProps = {
@@ -16,19 +17,28 @@ type NavbarProps = {
 export default class Navbar extends React.Component<NavbarProps> {
   render() {
     return (
+      <>
       <AppBar
+        className="navbar"
         color="default"
         position="fixed" >
-        <Grid container className="navbar" alignItems="center"  justify="space-between">
+        <Grid container alignItems="center"  justify="space-between">
         <Grid item>
-            <IconButton className="menu-icon" color="inherit" edge="start" onClick={this.props.onClickMenu}>
-              <MenuIcon />
-            </IconButton>
+            <Hidden only={['xs']}>
+              <IconButton 
+                className="menu-icon" 
+                color="inherit" 
+                edge="start" 
+                onClick={this.props.onClickMenu}>
+                <MenuIcon />
+              </IconButton>
+            </Hidden>
+            <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
         </Grid>
         <Grid item xs>
             <Grid container alignItems="center"  justify="space-between">
             <Grid item  xs>
-            <Hidden only={['xs']}>
+            <Hidden smUp={false} only={['xs']} >
                 <Grid container alignItems="center" justify="center" spacing={3}>
                   <Grid item  sm={10} md={7}>
                     <div className="form-search">
@@ -46,6 +56,10 @@ export default class Navbar extends React.Component<NavbarProps> {
           </Grid>
           </Grid>
         
-      </AppBar>)
+      </AppBar>
+      <Hidden only={['sm','md','lg']}>
+        <NavbarBottom />
+      </Hidden>
+      </>)
   }
 }

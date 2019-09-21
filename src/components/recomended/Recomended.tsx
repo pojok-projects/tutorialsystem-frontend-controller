@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 
-//assets
-import thumbnail from "../../images/recomended-thumbnail.jpg";
 
 // css
 import "./Recomended.css";
@@ -19,7 +17,7 @@ export default class Recomended extends React.Component {
                 <Grid container spacing={3} className="recomended-video">
                   <Grid item lg={5}>
                     <Link to="/video-playlist" className="video-gallery-title">
-                      <img src={thumbnail} alt={thumbnail} width="100%" />
+                      <img src="/assets/recomended-thumbnail.jpg" alt="recomended-thumbnail.jpg" width="100%" />
                     </Link>
                   </Grid>
                   <Grid item lg={7}>

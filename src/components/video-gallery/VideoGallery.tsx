@@ -6,7 +6,6 @@ import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import "../video-gallery/video-gallery.css";
-import video from "../../sample/videos/sample.mp4";
 import { Link } from "react-router-dom";
 import Recomended from "../recomended/Recomended";
 
@@ -31,7 +30,7 @@ export default class VideoGallery extends React.Component {
                       md={4}
                       className="video-gallery"
                     >
-                      <video src={video} controls></video>
+                      <video src="/assets/sample.mp4" controls></video>
                       <Typography variant="h6" gutterBottom>
                         <Link
                           to="/video-playlist"

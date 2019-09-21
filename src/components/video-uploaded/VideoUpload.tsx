@@ -6,10 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Alert from 'react-bootstrap/Alert'
 import Avatar from '@material-ui/core/Avatar'
-import AvatarUser from '../../images/1.jpg'
 import './video-upload.css'
 
-import video from '../../sample/videos/sample.mp4'
 
 export class VideoUpload extends Component {
   render() {
@@ -20,7 +18,7 @@ export class VideoUpload extends Component {
             <Col xs={12}>
               <Row>
                 <Col md={8} xs={12} className='watch-video pt-3'>
-                  <video src={video} controls ></video>
+                  <video src="/assets/sample.mp4" controls ></video>
                 </Col>
                 <ListVideo />
               </Row>
@@ -62,7 +60,7 @@ function UserUpload(){
     <Col xs={12}>
       <Row>
         <Col xs={2}>
-          <Avatar alt="Remy Sharp" src={AvatarUser} />
+          <Avatar alt="Remy Sharp" src="/assets/user-avatar.jpg" />
         </Col>
         <Col xs={10}>
           <p>Lorem ipsum dolor sit.</p>

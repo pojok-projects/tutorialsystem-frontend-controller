@@ -16,7 +16,7 @@ import Fab from '@material-ui/core/Fab'
     
       {previews}
       <div {...dropzoneProps}>
-      {files.length === 0 && <img src="/assets/addvideo.png" width="200" alt="video-upload" />  }
+      {files.length === 0 && <img src="/assets/icon-add-video.png" width="200" alt="video-upload" />  }
       {files.length === 0 && <h3 className="content-form">Drag and drop in here <br/> Or</h3> }
       {files.length === 0 && <Fab variant="extended" color="primary"> Browse files</Fab>}
       {input}

@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import VideoUpload from "./components/video-upload/VideoUpload";
 import VideoPlaylist from "./components/video-playlist/VideoPlaylist";
+import Hidden from '@material-ui/core/Hidden';
 
 export default class App extends React.Component {
   state = {
@@ -39,6 +40,9 @@ export default class App extends React.Component {
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
+        <Hidden only={['sm','md','lg']}>
+            <div className="padding-bottom-mobile">&nbsp;</div>
+          </Hidden>
       </Router>
     );
   }
