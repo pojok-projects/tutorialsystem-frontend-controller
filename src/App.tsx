@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import VideoUpload from "./components/video-upload/VideoUpload";
 import VideoPlaylist from "./components/video-playlist/VideoPlaylist";
-import Hidden from '@material-ui/core/Hidden';
+import Hidden from "@material-ui/core/Hidden";
 
 export default class App extends React.Component {
   state = {
@@ -32,6 +32,7 @@ export default class App extends React.Component {
           open={this.state.open}
           onClickMenu={this.handleToggleMenu}
         />
+        <main>
         <Switch>
           <Route exact path="/" component={VideoGallery} />
           <Route path="/video-playlist" component={VideoPlaylist} />
@@ -43,6 +44,7 @@ export default class App extends React.Component {
         <Hidden only={['sm','md','lg']}>
             <div className="padding-bottom-mobile">&nbsp;</div>
           </Hidden>
+        </main>
       </Router>
     );
   }

@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import AppsIcon from '@material-ui/icons/Apps'
 import SearchIcon from '@material-ui/icons/Search'
 import Hidden from '@material-ui/core/Hidden'
+import { Link } from "react-router-dom";
 
 export default class NavbarTool extends React.Component {
 
@@ -17,9 +18,11 @@ export default class NavbarTool extends React.Component {
                     <IconButton color="default">
                         <SearchIcon />
                     </IconButton>
-                    <IconButton>
-                        <img src="/assets/icon-upload.png" width="24" alt="icon-upload.png" />
-                    </IconButton>
+                    <Link to="/upload">
+                        <IconButton>
+                            <img src="/assets/icon-upload.png" width="24" alt="icon-upload.png" />
+                        </IconButton>
+                    </Link>
                 </Hidden>
 
                 <Hidden only={['xs']}>

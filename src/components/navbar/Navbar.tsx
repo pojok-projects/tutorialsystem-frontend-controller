@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import NavbarTool from './NavbarTool'
 import NavbarBottom from './NavbarBottom'
+import { Link } from "react-router-dom";
 import './Navbar.css'
 
 type NavbarProps = {
@@ -33,7 +34,9 @@ export default class Navbar extends React.Component<NavbarProps> {
                 <MenuIcon />
               </IconButton>
             </Hidden>
-            <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
+            <Link to="/">
+              <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
+            </Link>
         </Grid>
         <Grid item xs>
             <Grid container alignItems="center"  justify="space-between">
