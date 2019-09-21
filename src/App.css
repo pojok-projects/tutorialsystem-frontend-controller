@@ -1,8 +1,9 @@
-.body {
-  overflow: hidden;
+body {
+  overflow: hidden !important;
 }
 main{
   overflow: auto;
+    height: 100vh;
 }
 .padding-bottom-mobile{
   width: 100%;
