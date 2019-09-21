@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 export default class Recomended extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ margin: "10px 20px" }}>
         <h4>Recomended</h4>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} >
           {[0, 1, 2].map((value, idx) => (
             <Grid item sm={6} md={12} lg={12} key={idx}>
               <div className="wrapper-recomended">

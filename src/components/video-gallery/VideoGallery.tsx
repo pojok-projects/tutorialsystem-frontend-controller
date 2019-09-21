@@ -13,7 +13,7 @@ export default class VideoGallery extends React.Component {
   render() {
     return (
       <Container maxWidth="lg" className="wrapper">
-        <Grid container spacing={10}>
+        <Grid container alignItems="flex-start" justify="center">
           <Grid item lg={8}>
             <Card>
               <Typography variant="h6" style={{ padding: " 10px 16px" }}>

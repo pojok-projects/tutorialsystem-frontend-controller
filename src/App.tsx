@@ -41,9 +41,6 @@ export default class App extends React.Component {
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
-        <Hidden only={['sm','md','lg']}>
-            <div className="padding-bottom-mobile">&nbsp;</div>
-          </Hidden>
         </main>
       </Router>
     );
