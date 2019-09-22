@@ -13,7 +13,7 @@ export default class Wrapper extends React.Component {
   render() {
     return (
       <Container maxWidth="lg" className="wrapper">
-        <Grid container spacing={7}>
+        <Grid container>
           <Grid item md={8}>
             <Video />
           </Grid>

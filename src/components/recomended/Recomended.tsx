@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 
-//assets
-import thumbnail from "../../images/recomended-thumbnail.jpg";
 
 // css
 import "./Recomended.css";
@@ -10,16 +8,16 @@ import { Link } from "react-router-dom";
 export default class Recomended extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ margin: "10px 20px" }}>
         <h4>Recomended</h4>
-        <Grid container spacing={3}>
-          {[0, 1, 2].map(value => (
-            <Grid item sm={6} md={12} lg={12}>
+        <Grid container spacing={3} >
+          {[0, 1, 2].map((value, idx) => (
+            <Grid item sm={6} md={12} lg={12} key={idx}>
               <div className="wrapper-recomended">
                 <Grid container spacing={3} className="recomended-video">
                   <Grid item lg={5}>
                     <Link to="/video-playlist" className="video-gallery-title">
-                      <img src={thumbnail} alt={thumbnail} width="100%" />
+                      <img src="/assets/recomended-thumbnail.jpg" alt="recomended-thumbnail.jpg" width="100%" />
                     </Link>
                   </Grid>
                   <Grid item lg={7}>

@@ -1,22 +1,36 @@
 .navbar{
-    padding: 10px 15px;
+    background: #c35151 !important;
+    color: white !important;
 }
-
+.navbar button{ color: white !important; }
 .navbar .menu-icon {
     margin: 0;
 }
 
 .form-search {
     display: flex;
-    width: 100%;
+    width: 100%; 
 }
 .form-search >div { flex: 1; }
 .form-search input {
     border: 1px solid #ccc;
     padding: 10px 20px;
     border-radius: 25px;
+    background: white;
 }
 .navbar-tool{
     width: auto !important;
-    margin-right: 25px;
 }
+
+.navbar-bottom {
+    top: auto !important;
+    bottom: 0 !important;
+    background: white !important;
+    padding: 10px 5px;
+    color: inherit !important;
+}
+
+.home-red {
+    color: red !important;
+}
+    

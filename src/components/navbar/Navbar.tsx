@@ -7,6 +7,8 @@ import SearchIcon from '@material-ui/icons/Search'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import NavbarTool from './NavbarTool'
+import NavbarBottom from './NavbarBottom'
+import { Link } from "react-router-dom";
 import './Navbar.css'
 
 type NavbarProps = {
@@ -16,29 +18,51 @@ type NavbarProps = {
 export default class Navbar extends React.Component<NavbarProps> {
   render() {
     return (
+      <>
       <AppBar
+        className="navbar"
         color="default"
         position="fixed" >
-        <Grid container className="navbar">
-          <Grid item xs={2}>
-            <IconButton className="menu-icon" color="inherit" edge="start" onClick={this.props.onClickMenu}>
-              <MenuIcon />
-            </IconButton>
-          </Grid>
-          <Grid item xs={10}>
-            <Grid container justify="space-between">
+        <Grid container alignItems="center"  justify="space-between">
+        <Grid item>
             <Hidden only={['xs']}>
-            <Grid item  sm={8} md={7} className="form-search">
-              <InputBase placeholder="Search…" />
-              <IconButton><SearchIcon /></IconButton>
-            </Grid>
+              <IconButton 
+                className="menu-icon" 
+                color="inherit" 
+                edge="start" 
+                onClick={this.props.onClickMenu}>
+                <MenuIcon />
+              </IconButton>
             </Hidden>
-            <Grid item xs={12} sm={4} md={5}>
-              <NavbarTool />
-            </Grid>
+            <Link to="/">
+              <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
+            </Link>
+        </Grid>
+        <Grid item xs>
+            <Grid container alignItems="center"  justify="space-between">
+            <Grid item  xs>
+            <Hidden smUp={false} only={['xs']} >
+                <Grid container alignItems="center" justify="center" spacing={3}>
+                  <Grid item  sm={10} md={7}>
+                    <div className="form-search">
+                    <InputBase placeholder="Search…" />
+                    <IconButton><SearchIcon /></IconButton>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Hidden>
+              </Grid>
+              <Grid item>
+                <NavbarTool />
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </AppBar>)
+          </Grid>
+        
+      </AppBar>
+      <Hidden only={['sm','md','lg']}>
+        <NavbarBottom />
+      </Hidden>
+      </>)
   }
 }

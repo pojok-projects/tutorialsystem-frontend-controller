@@ -31,6 +31,7 @@ export default class App extends React.Component {
           open={this.state.open}
           onClickMenu={this.handleToggleMenu}
         />
+        <main>
         <Switch>
           <Route exact path="/" component={VideoGallery} />
           <Route path="/video-playlist" component={VideoPlaylist} />
@@ -39,6 +40,7 @@ export default class App extends React.Component {
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
+        </main>
       </Router>
     );
   }

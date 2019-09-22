@@ -1,10 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid'
-import Icon from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-// assets
-import video from '../../sample/videos/sample.mp4'
 
 //icon
 import Like from '@material-ui/icons/ThumbUp'
@@ -23,7 +20,7 @@ export default class Video extends React.Component {
     return (
       <Grid container direction="column">
         <Grid item className="video-player">
-          <video src={video} controls ></video>
+          <video src="/assets/sample.mp4" controls ></video>
         </Grid>
         <Typography variant="h6" className="title-video">
           SAMSUNG Galaxy Hm
