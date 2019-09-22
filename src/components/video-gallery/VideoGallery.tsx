@@ -28,8 +28,10 @@ export default class VideoGallery extends React.Component {
                       <img src="/assets/recomended-thumbnail.jpg" className="video-gallery-thumbnail" alt="recomended-thumbnail.jpg"  />
                     </Grid>
                     <Grid item xs>
-                    <Grid container alignItems="center" justify="flex-start">
+                    <Grid container alignItems="flex-start" justify="flex-start">
+                    <IconButton>
                       <img src="/assets/icon-user.png" className="video-gallery-user" alt="icon-user.png" />
+                      </IconButton>
                       <Grid item xs>
                         <Grid container direction="column" className="video-gallery-title">
                           <Typography variant="subtitle2" >
