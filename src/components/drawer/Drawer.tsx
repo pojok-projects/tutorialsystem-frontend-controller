@@ -32,12 +32,12 @@ export default class DrawerMenu extends React.Component<DrawerMenuProps> {
               <ListItemText primary="Home" />
             </Link>
           </ListItem>
-          <ListItem button key="Video Uploaded">
+          <ListItem button key="Upload Video">
             <ListItemIcon>
               <PublishIcon />
             </ListItemIcon>
             <Link to="/upload">
-              <ListItemText primary="Video Uploaded" />
+              <ListItemText primary="Upload Video" />
             </Link>
           </ListItem>
         </List>
