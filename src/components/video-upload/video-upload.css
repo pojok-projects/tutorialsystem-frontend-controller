@@ -7,7 +7,8 @@
     flex-direction: column;
 }
 .video-upload .dzu-dropzone{ border: none; overflow: hidden; }
-.video-upload .content-form{ text-align: center;  }
+.video-upload .video-upload-content-form{ text-align: center;  }
+.video-upload .video-upload-img{ width: 200px; }
 .watch-video video{
     border-radius: 25px;
     box-sizing: border-box;
@@ -44,4 +45,15 @@
 
 .grid-video {
     border-radius: 15px;
+}
+
+@media(max-width: 600px){
+    .video-upload-content-form{
+        display: none;
+    }
+
+    .video-upload .video-upload-img{
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
 }
