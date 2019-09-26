@@ -41,7 +41,7 @@ export default class Navbar extends React.Component<NavbarProps> {
         <Grid item xs>
             <Grid container alignItems="center"  justify="space-between">
             <Grid item  xs>
-            <Hidden smUp={false} only={['xs']} >
+            <Hidden xsUp={false} only={['xs']} >
                 <Grid container alignItems="center" justify="center" spacing={3}>
                   <Grid item  sm={10} md={7}>
                     <div className="form-search">
@@ -60,7 +60,7 @@ export default class Navbar extends React.Component<NavbarProps> {
           </Grid>
         
       </AppBar>
-      <Hidden only={['sm','md','lg']}>
+      <Hidden only={['sm','md','lg', 'xl']}>
         <NavbarBottom />
       </Hidden>
       </>)
