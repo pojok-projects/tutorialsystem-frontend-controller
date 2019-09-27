@@ -1,6 +1,7 @@
 .navbar{
     background: #c35151 !important;
     color: white !important;
+    padding: 5px 10px;
 }
 .navbar button{ color: white !important; }
 .navbar .menu-icon {
@@ -33,4 +34,8 @@
 .home-red {
     color: red !important;
 }
-    
+
+.navbar-search {
+    background: #ffffff8c;
+    border-radius: 5px;
+}

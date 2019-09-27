@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Card, CardContent, Container, Grid } from "@material-ui/core";
 import Dropzone from "react-dropzone-uploader";
 import { PreviewVideoUpload, BrowseVideoUpload } from "./FormVideoUpload";
+import { VIDEO_UPLOAD_URL } from '../../controllers/video-manager.controller'
 import "react-dropzone-uploader/dist/styles.css";
 import "./video-upload.css";
-import { VIDEO_UPLOAD_URL } from '../../controllers/video-manager.controller'
 
 
 export class VideoUpload extends Component {

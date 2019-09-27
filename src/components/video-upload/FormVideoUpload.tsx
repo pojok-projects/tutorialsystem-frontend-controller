@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Container, Typography, TextField, Grid, LinearProgress, Button, Fab } 
+import { Typography, TextField, Grid, LinearProgress, Button, Fab } 
         from "@material-ui/core";
 import { ILayoutProps, IPreviewProps  } from "react-dropzone-uploader";
 

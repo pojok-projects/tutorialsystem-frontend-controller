@@ -1,47 +1,62 @@
-import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import IconButton from '@material-ui/core/IconButton'
-import InputBase from '@material-ui/core/InputBase'
-import MenuIcon from '@material-ui/icons/Menu'
-import SearchIcon from '@material-ui/icons/Search'
-import Grid from '@material-ui/core/Grid'
-import Hidden from '@material-ui/core/Hidden'
-import NavbarTool from './NavbarTool'
-import NavbarBottom from './NavbarBottom'
+import React from "react";
 import { Link } from "react-router-dom";
+import { AppBar, IconButton, InputBase, Hidden, Grid } 
+from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import NavbarTool from "./NavbarTool";
+import NavbarBottom from "./NavbarBottom";
+import NavbarSearch from "./NavbarSearch";
 import './Navbar.css'
 
 type NavbarProps = {
   onClickMenu(): void
 }
 
+const LogoNavbar = ({ onClickMenu } : NavbarProps) => {
+  return (
+    <Grid container alignItems="center"  justify="space-between">
+        <Hidden only={['xs']}>
+          <IconButton 
+            className="menu-icon" 
+            color="inherit" 
+            edge="start" 
+            onClick={onClickMenu}>
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
+        <Link to="/">
+          <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
+        </Link>
+    </Grid>
+  );
+}
+
 export default class Navbar extends React.Component<NavbarProps> {
+
+  state = {
+    displaySearch : false
+  }
+
+  toggleFormSearch = () => {
+    this.setState({ displaySearch : !this.state.displaySearch })
+  }
+
   render() {
     return (
       <>
-      <AppBar
+      {!this.state.displaySearch ? <AppBar
         className="navbar"
         color="default"
         position="fixed" >
         <Grid container alignItems="center"  justify="space-between">
         <Grid item>
-            <Hidden only={['xs']}>
-              <IconButton 
-                className="menu-icon" 
-                color="inherit" 
-                edge="start" 
-                onClick={this.props.onClickMenu}>
-                <MenuIcon />
-              </IconButton>
-            </Hidden>
-            <Link to="/">
-              <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
-            </Link>
+          <LogoNavbar onClickMenu={this.props.onClickMenu} />
         </Grid>
         <Grid item xs>
             <Grid container alignItems="center"  justify="space-between">
-            <Grid item  xs>
-            <Hidden xsUp={false} only={['xs']} >
+            <Grid item xs>
+            <Hidden only={['xs']} >
                 <Grid container alignItems="center" justify="center" spacing={3}>
                   <Grid item  sm={10} md={7}>
                     <div className="form-search">
@@ -53,15 +68,14 @@ export default class Navbar extends React.Component<NavbarProps> {
               </Hidden>
               </Grid>
               <Grid item>
-                <NavbarTool />
+                <NavbarTool openFormSearch={this.toggleFormSearch} />
               </Grid>
             </Grid>
           </Grid>
           </Grid>
-        
-      </AppBar>
+      </AppBar> : <NavbarSearch onBack={this.toggleFormSearch} /> }
       <Hidden only={['sm','md','lg', 'xl']}>
-        <NavbarBottom />
+        <NavbarBottom  />
       </Hidden>
       </>)
   }
