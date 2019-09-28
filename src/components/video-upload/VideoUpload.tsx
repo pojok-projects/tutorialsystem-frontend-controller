@@ -23,11 +23,10 @@ export class VideoUpload extends Component {
     const { state, handleChangeStatusUpload } = this
 
     return (
-      <Container maxWidth="lg" className="wrapper">
+      <Container maxWidth="lg" className="wrapper" >
         <Card style={{ borderRadius: "25px" }}>
           <CardContent>
             <Grid container alignItems="center" justify="center">
-              
               <Dropzone  
                 LayoutComponent={BrowseVideoUpload}
                 PreviewComponent={PreviewVideoUpload}

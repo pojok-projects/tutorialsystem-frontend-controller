@@ -27,6 +27,9 @@ const LogoNavbar = ({ onClickMenu } : NavbarProps) => {
         </Hidden>
         <Link to="/">
           <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
+          <Hidden only={['xs','sm']}>
+           <img src="/assets/title-tutorialinaja.png" width="150" />
+        </Hidden>
         </Link>
     </Grid>
   );
@@ -50,9 +53,7 @@ export default class Navbar extends React.Component<NavbarProps> {
         color="default"
         position="fixed" >
         <Grid container alignItems="center"  justify="space-between">
-        <Grid item>
-          <LogoNavbar onClickMenu={this.props.onClickMenu} />
-        </Grid>
+        <Grid item><LogoNavbar onClickMenu={this.props.onClickMenu} /></Grid>
         <Grid item xs>
             <Grid container alignItems="center"  justify="space-between">
             <Grid item xs>
