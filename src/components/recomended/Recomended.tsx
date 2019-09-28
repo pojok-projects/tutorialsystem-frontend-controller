@@ -12,7 +12,7 @@ export default class Recomended extends React.Component {
         <h4>Recomended</h4>
         <Grid container spacing={3} >
           {[0, 1, 2].map((value, idx) => (
-            <Grid item sm={6} md={12} lg={12} key={idx}>
+            <Grid item sm={4} md={4} lg={12} key={idx}>
               <div className="wrapper-recomended">
                 <Grid container spacing={3} className="recomended-video">
                   <Grid item lg={5}>

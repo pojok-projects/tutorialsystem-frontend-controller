@@ -8,14 +8,18 @@ import SearchIcon from '@material-ui/icons/Search'
 import Hidden from '@material-ui/core/Hidden'
 import { Link } from "react-router-dom";
 
-export default class NavbarTool extends React.Component {
+type NavbarToolProps = {
+    openFormSearch() : void;
+}
+
+export default class NavbarTool extends React.Component<NavbarToolProps> {
 
 
     render() {  
         return (
             <Grid container justify="flex-end" alignItems="center" className="navbar-tool">
-                <Hidden xsUp={false} only={['sm','md','lg']}>
-                    <IconButton color="default">
+                <Hidden xsUp={false} only={['sm','md','lg','xl']}>
+                    <IconButton color="default" onClick={this.props.openFormSearch}>
                         <SearchIcon />
                     </IconButton>
                     <Link to="/upload">
@@ -24,7 +28,6 @@ export default class NavbarTool extends React.Component {
                         </IconButton>
                     </Link>
                 </Hidden>
-
                 <Hidden only={['xs']}>
                 <IconButton >
                     <AppsIcon />

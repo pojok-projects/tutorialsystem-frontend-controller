@@ -1,66 +1,40 @@
 import React, { Component } from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Container from "@material-ui/core/Container";
-import "./video-upload.css";
-import Dropzone, { ILayoutProps  } from "react-dropzone-uploader";
+import { Card, CardContent, Container, Grid } from "@material-ui/core";
+import Dropzone from "react-dropzone-uploader";
+import { PreviewVideoUpload, BrowseVideoUpload } from "./FormVideoUpload";
+import { VIDEO_UPLOAD_URL } from '../../controllers/video-manager.controller'
 import "react-dropzone-uploader/dist/styles.css";
-import Grid from '@material-ui/core/Grid'
-import Fab from '@material-ui/core/Fab'
+import "./video-upload.css";
 
-
- const LayoutDropzone = ({ input, previews, submitButton, dropzoneProps, files, extra: { maxFiles } }: ILayoutProps) => {
-  return (
-
-    <div className="video-upload">
-    
-      {previews}
-      <div {...dropzoneProps}>
-      {files.length === 0 && <img src="/assets/icon-add-video.png" className="video-upload-img"  alt="video-upload" />  }
-      {files.length === 0 && <h3 className="video-upload-content-form">Drag and drop in here <br/> Or</h3> }
-      {files.length === 0 && <Fab variant="extended" color="primary"> Browse files</Fab>}
-      {input}
-      </div>
-
-      {files.length > 0 && submitButton}
-    </div>
-  )
-}
 
 export class VideoUpload extends Component {
+  state = {
+    config : () => ({ url : VIDEO_UPLOAD_URL })
+  }
+
+  handleChangeStatusUpload = ({ meta, file }: any, status: any) : void => {
+    console.log(status, meta, file);  
+  };
+
+
+
   render() {
-    const getUploadParams = () => {
-      return { url: "https://api.tutorialinaja.tech/vidu/v1/upload" };
-    };
-
-    // called every time a file's `status` changes
-    const handleChangeStatus = ({ meta, file }: any, status: any) => {
-      console.log(status, meta, file);  
-    };
-
-    // receives array of files that are done uploading when submit button is clicked
-    const handleSubmit = (
-      files: { map: (arg0: (f: any) => any) => void },
-      allFiles: { forEach: (arg0: (f: any) => any) => void }
-    ) => {
-      console.log(files.map((f: { meta: any }) => f.meta));
-      allFiles.forEach((f: { remove: () => void }) => f.remove());
-    };
+    
+    const { state, handleChangeStatusUpload } = this
 
     return (
-      <Container maxWidth="lg" className="wrapper">
+      <Container maxWidth="lg" className="wrapper" >
         <Card style={{ borderRadius: "25px" }}>
           <CardContent>
             <Grid container alignItems="center" justify="center">
-              
               <Dropzone  
-                LayoutComponent={LayoutDropzone}
+                LayoutComponent={BrowseVideoUpload}
+                PreviewComponent={PreviewVideoUpload}
                 inputContent=""
-                getUploadParams={getUploadParams}
-                onChangeStatus={handleChangeStatus}
-                onSubmit={handleSubmit}
-                accept="image/*,audio/*,video/*"
-                maxSizeBytes={10485760}
+                getUploadParams={state.config}
+                onChangeStatus={handleChangeStatusUpload}
+                accept="video/*"
+                maxSizeBytes={50485760}
               />
             </Grid>
           </CardContent>

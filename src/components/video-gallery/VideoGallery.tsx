@@ -24,8 +24,9 @@ export default class VideoGallery extends React.Component {
                   md={4}
                 >
                   <Grid container direction="column" className="video-gallery">
-                    <Grid item xs>
-                      <img src="/assets/recomended-thumbnail.jpg" className="video-gallery-thumbnail" alt="recomended-thumbnail.jpg"  />
+                    <Grid item xs className="video-gallery-thumbnail">
+                      <img src="/assets/recomended-thumbnail.jpg"  alt="recomended-thumbnail.jpg"  />
+                      <span className="video-gallery-duration">05:30</span>
                     </Grid>
                     <Grid item xs>
                     <Grid container alignItems="flex-start" justify="flex-start">

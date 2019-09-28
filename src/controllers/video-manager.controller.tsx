@@ -1,0 +1,1 @@
+export const VIDEO_UPLOAD_URL =  "https://api.tutorialinaja.tech/vidu/v1/upload";
