@@ -7,11 +7,13 @@ import MorevertIcon from "@material-ui/icons/MoreVert";
 import "../video-gallery/video-gallery.css";
 import { Link } from "react-router-dom";
 import Recomended from "../recomended/Recomended";
+import POPUpAboutUs from "../about-us/AboutUs"
 
 export default class VideoGallery extends React.Component {
   render() {
     return (
       <Container maxWidth="lg" className="wrapper">
+      <POPUpAboutUs />
         <Grid container alignItems="flex-start" justify="center">
           <Grid item lg={8}>
             <Grid container spacing={3}>
