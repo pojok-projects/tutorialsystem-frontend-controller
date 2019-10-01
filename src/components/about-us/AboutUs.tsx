@@ -1,57 +1,98 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
-import { TransitionProps } from '@material-ui/core/transitions';
+import React, { Component } from 'react'
+import { Grid, Paper, Collapse, Slide, IconButton   } from '@material-ui/core';
+import CloseIcon from "@material-ui/icons/Close";
+import "./AboutUs.css";
 
-const Transition = React.forwardRef<undefined, TransitionProps>(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+const Slide1 = () => {
+    const [display, setDisplay] = React.useState(false);
+    
+    setTimeout(
+        () => setDisplay(true),
+        300
+    );
 
-export default class POPUpAboutUs extends React.Component {
+    return (
+        <Collapse in={display}>
+            <Paper className="about-us-slide">
+                ok ok slide1
+            </Paper>
+        </Collapse>
+    )
+}
 
+const Slide2 = () => {
+    const [display, setDisplay] = React.useState(false);
+    
+    setTimeout(
+        () => setDisplay(true),
+        300
+    );
+
+    return (
+        <Slide direction="right" in={display}>
+            <Paper className="about-us-slide">
+                ok ok slide2
+            </Paper>
+        </Slide>
+    )
+}
+
+const Slide3 = () => {
+    const [display, setDisplay] = React.useState(false);
+    
+    setTimeout(
+        () => setDisplay(true),
+        300
+    );
+
+    return (
+        <Slide direction="right" in={display}>
+            <Paper className="about-us-slide">
+                ok ok slide3
+            </Paper>
+        </Slide>
+    )
+}
+
+type AboutUsProps = {
+    onClose : () => void;
+}
+
+export default class AboutUs extends Component<AboutUsProps>{
     state = {
-        open : true
+        slides : [<Slide1 /> , <Slide2 />, <Slide3 /> ],
+        countSlide : 0,
     }
 
     componentDidMount(){
-        const isDisplay = localStorage.getItem("isDisplay");
-        if(isDisplay === "false") {
-            this.setState({ open : false })
-        }
-    }
-  
-
-    handleClose = () => {   
-        this.setState({ open : false })
-        localStorage.setItem("isDisplay", "false");
-    };
-
-    render(){
-        return (
-            <Dialog
-                open={this.state.open}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={this.handleClose}
-            >
-                <DialogTitle>Tentang Web Tutorialin aja :)</DialogTitle>
-                <DialogContent>
-                <DialogContentText id="alert-dialog-slide-description">
-                    Let Google help apps determine location. This means sending anonymous location data to
-                    Google, even when no apps are running.
-                </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                <Button onClick={this.handleClose} color="primary">
-                    Close
-                </Button>
-                </DialogActions>
-            </Dialog>
+        setInterval( 
+            () => this.updateSlide(),
+            3000
         );
     }
+
+    updateSlide() {
+        let { slides, countSlide } = this.state;
+        countSlide += 1;
+
+        if(countSlide > (slides.length-1)){
+            this.setState({ countSlide:  0 });
+        }else{
+            
+            this.setState({ countSlide: countSlide });
+        }
+    }
+
+  render() {
+    const { countSlide, slides } = this.state
+
+    return (
+      <Grid container direction="column" className="about-us">
+          {slides[countSlide]}
+        <IconButton className="about-us-close" >
+            <CloseIcon  onClick={this.props.onClose}/>
+        </IconButton>
+      </Grid>
+    )
+  }
 }

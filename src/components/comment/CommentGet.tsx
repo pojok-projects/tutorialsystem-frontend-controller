@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
-import UserComment from '../comment/UserComment'
+import UserComment from './UserComment'
 import Icon from '@material-ui/core/IconButton'
 import Like from '@material-ui/icons/ThumbUp'
 import Dislike from '@material-ui/icons/ThumbDown'
