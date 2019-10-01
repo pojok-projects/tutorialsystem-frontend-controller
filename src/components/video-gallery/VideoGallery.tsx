@@ -7,13 +7,25 @@ import MorevertIcon from "@material-ui/icons/MoreVert";
 import "../video-gallery/video-gallery.css";
 import { Link } from "react-router-dom";
 import Recomended from "../recomended/Recomended";
+import PopupWelcome from "../popup-welcome/PopupWelcome";
+import AboutUs from "../about-us/AboutUs";
 
 export default class VideoGallery extends React.Component {
+  state = {
+    isCloseAbout : false
+  }
+
+  closeAboutUs = () => {
+    this.setState({ isCloseAbout : true })
+  }
+
   render() {
     return (
       <Container maxWidth="lg" className="wrapper">
+      <PopupWelcome />
         <Grid container alignItems="flex-start" justify="center">
           <Grid item lg={8}>
+            {this.state.isCloseAbout ? "" : <AboutUs onClose={this.closeAboutUs}/> }
             <Grid container spacing={3}>
               {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((value, idx) => (
                 <Grid

@@ -28,7 +28,7 @@ const LogoNavbar = ({ onClickMenu } : NavbarProps) => {
         <Link to="/">
           <img src="/assets/logo-tutorialinaja.png" alt="logo-tutorialinaja.png" width="35" />
           <Hidden only={['xs','sm']}>
-           <img src="/assets/title-tutorialinaja.png" width="150" />
+           <img src="/assets/title-tutorialinaja.png" alt="title-tutorialinaja.png" width="150" />
         </Hidden>
         </Link>
     </Grid>
