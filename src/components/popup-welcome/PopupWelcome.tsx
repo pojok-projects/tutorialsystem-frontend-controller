@@ -16,7 +16,7 @@ export default class PopupWelcome extends React.Component {
     componentDidMount(){
         const isDisplay = localStorage.getItem("isDisplay");
         if(isDisplay === "false") {
-           // this.setState({ open : false })
+           this.setState({ open : false })
         }
     }
   
