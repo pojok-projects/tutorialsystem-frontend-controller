@@ -1,7 +1,6 @@
 body {
-  padding-top: 65px;
-}
-main{
+  padding: 60px 0 0 0!important;
+  overflow: auto !important;
 }
 .padding-bottom-mobile{
   width: 100%;
