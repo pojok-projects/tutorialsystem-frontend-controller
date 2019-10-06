@@ -1,4 +1,4 @@
-import ContentMetadataController  from '../controllers/content-metadata.controller'
+import ContentMetadataController  from '../controllers/category-manager.controller'
 import { ContentMetadataModel }  from '../models/content-metadata.models'
 
 it('request api content metadata', () => {
