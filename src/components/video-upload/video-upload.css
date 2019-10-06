@@ -1,3 +1,8 @@
+.video-upload-content{
+    border-radius: 5px;
+    border: 3px dashed #e8d7d7;
+    padding: 3% 0;
+}
 .video-upload {
     width : 100%;
     display: flex;
@@ -6,8 +11,9 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .video-upload .dzu-dropzone{ border: none; overflow: hidden; }
-.video-upload .video-upload-content-form{ text-align: center;  }
+.video-upload .video-upload-content-form{ text-align: center; margin-top: 10px;  }
 .video-upload .video-upload-img{ width: 200px; }
 .video-upload-preview{
     padding: 20px 15px;
@@ -16,6 +22,15 @@
 .video-upload-preview:hover {
     border-color: #650e0e;
 }
+.video-upload .video-upload-loading{ height: 10px; }
+.video-upload-content-form button {
+    text-transform: capitalize;
+    background: #eb5757;
+    color: #fff;
+    padding: 5px;
+}
+
+
 .watch-video video{
     border-radius: 25px;
     box-sizing: border-box;
@@ -60,7 +75,7 @@
 }
 
 @media(max-width: 600px){
-    .video-upload-content-form{
+    .video-upload-content-form >span{
         display: none;
     }
 

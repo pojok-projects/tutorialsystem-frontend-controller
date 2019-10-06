@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Card, CardContent, Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import Dropzone from "react-dropzone-uploader";
 import { PreviewVideoUpload, BrowseVideoUpload } from "./FormVideoUpload";
-import { VIDEO_UPLOAD_URL } from '../../controllers/video-manager.controller'
+import { VIDEO_UPLOAD_URL } from "../../controllers/video-manager.controller";
+import SearchCategory from "../category/SearchCategory"
 import "react-dropzone-uploader/dist/styles.css";
 import "./video-upload.css";
 
@@ -19,26 +20,24 @@ export class VideoUpload extends Component {
 
 
   render() {
-    
     const { state, handleChangeStatusUpload } = this
 
     return (
       <Container maxWidth="lg" className="wrapper" >
-        <Card style={{ borderRadius: "25px" }}>
-          <CardContent>
-            <Grid container alignItems="center" justify="center">
-              <Dropzone  
-                LayoutComponent={BrowseVideoUpload}
-                PreviewComponent={PreviewVideoUpload}
-                inputContent=""
-                getUploadParams={state.config}
-                onChangeStatus={handleChangeStatusUpload}
-                accept="video/*"
-                maxSizeBytes={50485760}
-              />
+            <Grid 
+              className="video-upload-content" 
+              container 
+              alignItems="center" justify="center">
+                  <Dropzone  
+                    LayoutComponent={BrowseVideoUpload}
+                    PreviewComponent={PreviewVideoUpload}
+                    inputContent=""
+                    getUploadParams={state.config}
+                    onChangeStatus={handleChangeStatusUpload}
+                    accept="video/*"
+                    maxSizeBytes={50485760}
+                  />
             </Grid>
-          </CardContent>
-        </Card>
       </Container>
     );
   }
