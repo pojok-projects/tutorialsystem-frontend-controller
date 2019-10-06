@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import Dropzone from "react-dropzone-uploader";
 import { PreviewVideoUpload, BrowseVideoUpload } from "./FormVideoUpload";
-import { VIDEO_UPLOAD_URL } from "../../controllers/video-manager.controller";
-import SearchCategory from "../category/SearchCategory"
 import "react-dropzone-uploader/dist/styles.css";
 import "./video-upload.css";
-
+import { VIDEO_UPLOAD_URL } from "../../controllers/video-manager.controller";
 
 export class VideoUpload extends Component {
   state = {
@@ -15,7 +13,7 @@ export class VideoUpload extends Component {
 
   handleChangeStatusUpload = ({ meta, file }: any, status: any) : void => {
     console.log(status, meta, file);  
-  };
+  };    
 
 
 
@@ -23,22 +21,18 @@ export class VideoUpload extends Component {
     const { state, handleChangeStatusUpload } = this
 
     return (
-      <Container maxWidth="lg" className="wrapper" >
-            <Grid 
-              className="video-upload-content" 
-              container 
-              alignItems="center" justify="center">
-                  <Dropzone  
-                    LayoutComponent={BrowseVideoUpload}
-                    PreviewComponent={PreviewVideoUpload}
-                    inputContent=""
-                    getUploadParams={state.config}
-                    onChangeStatus={handleChangeStatusUpload}
-                    accept="video/*"
-                    maxSizeBytes={50485760}
-                  />
-            </Grid>
-      </Container>
+     
+      <Container maxWidth="lg" className="wrapper video-upload-border" >
+              <Dropzone  
+                LayoutComponent={BrowseVideoUpload}
+                PreviewComponent={PreviewVideoUpload}
+                inputContent=""
+                getUploadParams={state.config}
+                onChangeStatus={handleChangeStatusUpload}
+                accept="video/*"
+                maxSizeBytes={50485760}
+              />
+                </Container>
     );
   }
 }

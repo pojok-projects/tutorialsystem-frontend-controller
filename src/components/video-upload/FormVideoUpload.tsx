@@ -2,8 +2,6 @@ import React from "react";
 import { Typography, TextField, Grid, LinearProgress, Button } 
         from "@material-ui/core";
 import { ILayoutProps, IPreviewProps  } from "react-dropzone-uploader";
-import SearchCategory from "../category/SearchCategory";
-
 
 const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { maxFiles } }: ILayoutProps) => {
 
@@ -52,7 +50,6 @@ const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { max
               multiline
               rows="3"
             />
-            <SearchCategory />
             <Grid container justify="flex-end" style={{ marginTop: "5px" }}>
               <Button color="primary" >Save</Button>
             </Grid>
