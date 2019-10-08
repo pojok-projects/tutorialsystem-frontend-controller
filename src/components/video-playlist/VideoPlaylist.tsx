@@ -8,6 +8,14 @@ import Alert from "react-bootstrap/Alert";
 import Avatar from "@material-ui/core/Avatar";
 import "./video-playlist.css";
 
+// Icon
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import ThumbDownIcon from "@material-ui/icons/ThumbDown";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import Forward from "@material-ui/icons/Reply";
+import Comment from "@material-ui/icons/QuestionAnswer";
+import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
+
 import { Link } from "react-router-dom";
 
 export class VideoPlaylist extends Component {
@@ -22,6 +30,60 @@ export class VideoPlaylist extends Component {
                   <video src="/assets/sample.mp4" controls></video>
                 </Col>
                 <ListVideo />
+              </Row>
+              <Row>
+                <Col md={8} xs={12} className="step-section">
+                  <div className="container-step">
+                    <ul>
+                      {[1, 2, , 3, 4, 5].map(res => (
+                        <li>{res}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Row>
+                    <Col md={6}>
+                      <h2>Lorem Impsum</h2>
+                    </Col>
+                  </Row>
+                  <Row className="mt-2">
+                    <Col md={3}>120.000 Views</Col>
+                    <Col md={3}>Oktober, 8 2019</Col>
+                  </Row>
+                  <Row>
+                    <Col md={2} className="icons">
+                      <div className="icon red">
+                        <ThumbUpIcon fontSize="default" />
+                        <span>200</span>
+                      </div>
+                    </Col>
+                    <Col md={2} className="icons">
+                      <div className="icon">
+                        <ThumbDownIcon fontSize="default" />
+                        <span>200</span>
+                      </div>
+                    </Col>
+                    <Col md={{ span: 2, offset: 1 }}>
+                      <div className="icon2" id="forward">
+                        <Forward fontSize="default" />
+                      </div>
+                    </Col>
+                    <Col md={{ span: 2 }}>
+                      <div className="icon2">
+                        <Comment fontSize="default" />
+                      </div>
+                    </Col>
+                    <Col md={{ span: 2 }}>
+                      <div className="icon2">
+                        <PlaylistAddIcon fontSize="default" />
+                      </div>
+                    </Col>
+                    <Col md={{ span: 1 }}>
+                      <div id="dotthree">
+                        <MoreHorizIcon fontSize="large" />
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
               </Row>
             </Col>
           </CardContent>
