@@ -1,3 +1,11 @@
+.video-upload-border {
+    border: 3px dashed #ccc;
+    border-radius: 5px;
+    margin: 3% !important;
+    padding: 15px 0;
+    padding-top: 60px;
+    width: auto !important;
+}
 .video-upload {
     width : 100%;
     display: flex;
@@ -6,7 +14,9 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .video-upload .dzu-dropzone{ border: none; overflow: hidden; }
+.video-upload-content-form{ margin-top: 10px; }
 .video-upload .video-upload-content-form{ text-align: center;  }
 .video-upload .video-upload-img{ width: 200px; }
 .video-upload-preview{
@@ -16,6 +26,14 @@
 .video-upload-preview:hover {
     border-color: #650e0e;
 }
+.video-upload .video-upload-loading{ height: 10px; }
+.video-upload-content-form button {
+    text-transform: capitalize;
+    background: #eb5757;
+    color: #fff;
+    padding: 5px;
+}
+
 .watch-video video{
     border-radius: 25px;
     box-sizing: border-box;
@@ -60,7 +78,8 @@
 }
 
 @media(max-width: 600px){
-    .video-upload-content-form{
+    .video-upload-border{ margin: 10px; }
+    .video-upload-content-form >span{
         display: none;
     }
 
