@@ -2,9 +2,10 @@ import React from "react";
 import { Typography, TextField, Grid, LinearProgress, Button } 
         from "@material-ui/core";
 import { ILayoutProps, IPreviewProps  } from "react-dropzone-uploader";
+import { ContextVideoUpload } from "./VideoUploadReducer";
+import { VideoModel } from "../../models/video-upload.model";
 
 const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { maxFiles } }: ILayoutProps) => {
-
    return (
      <div className="video-upload">
         {previews}
@@ -24,7 +25,14 @@ const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { max
     console.log("meta : ", meta)
     
     const { name, percent, status } = meta
-    
+    const [ ctxState, dispatch ] = React.useContext(ContextVideoUpload);
+    let [  videoState, setVideo ] = React.useState(new VideoModel())
+
+    const onSaveVideo = () =>{
+      dispatch({ type : "ADD_VIDEO", video : videoState });
+      console.log("state ctx", ctxState, " - ", videoState)
+    }
+
     return (
       <Grid container justify="center" >
         <Grid item>
@@ -43,6 +51,10 @@ const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { max
             <TextField
               fullWidth
               label="Title"
+              value={videoState.video_title}
+              onChange={({ target }) =>{
+                setVideo({ ...videoState, video_title: target.value  }) 
+              }}
               />
             <TextField
               fullWidth
@@ -51,7 +63,7 @@ const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { max
               rows="3"
             />
             <Grid container justify="flex-end" style={{ marginTop: "5px" }}>
-              <Button color="primary" >Save</Button>
+              <Button color="primary" onClick={onSaveVideo} >Save</Button>
             </Grid>
         </Grid>
         </Grid>

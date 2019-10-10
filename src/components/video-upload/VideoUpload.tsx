@@ -2,26 +2,23 @@ import React, { Component } from "react";
 import { Container } from "@material-ui/core";
 import Dropzone from "react-dropzone-uploader";
 import { PreviewVideoUpload, BrowseVideoUpload } from "./FormVideoUpload";
+import { VIDEO_UPLOAD_URL } from "../../controllers/video-manager.controller";
+import { ContextVideoUpload, ProviderVideoUpload } from "./VideoUploadReducer";
 import "react-dropzone-uploader/dist/styles.css";
 import "./video-upload.css";
-import { VIDEO_UPLOAD_URL } from "../../controllers/video-manager.controller";
 
-export class VideoUpload extends Component {
-  state = {
+
+const VideoUpload = () => {
+
+  const state = {
     config : () => ({ url : VIDEO_UPLOAD_URL })
   }
 
-  handleChangeStatusUpload = ({ meta, file }: any, status: any) : void => {
+  const handleChangeStatusUpload = ({ meta, file }: any, status: any) : void => {
     console.log(status, meta, file);  
   };    
 
-
-
-  render() {
-    const { state, handleChangeStatusUpload } = this
-
     return (
-     
       <Container maxWidth="lg" className="wrapper video-upload-border" >
               <Dropzone  
                 LayoutComponent={BrowseVideoUpload}
@@ -32,9 +29,18 @@ export class VideoUpload extends Component {
                 accept="video/*"
                 maxSizeBytes={50485760}
               />
-                </Container>
+      </Container>
     );
-  }
 }
 
-export default VideoUpload;
+
+const ContainerVideoUpload = () => {
+  return (
+    <ProviderVideoUpload>
+      <VideoUpload />
+    </ProviderVideoUpload>
+
+  )
+}
+
+export default ContainerVideoUpload;
