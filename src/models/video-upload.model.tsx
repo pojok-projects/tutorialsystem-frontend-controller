@@ -35,11 +35,15 @@ export class PlaylistModel {
     user_id :string = "";
     title :string = "";
     description :string = "";
-   status :string = "";
+    status :string = "";
+    IsCreated :boolean = false;
 }
 
 export class VideoUploadModel  {
     User :UserModel = new UserModel();
     Videos :VideoModel[] = new Array<VideoModel>();
     Playlist :PlaylistModel = new PlaylistModel();
+    IsLoading :boolean = false;
+    IsError :boolean = false;
+    ErrorMessage :any;
 }

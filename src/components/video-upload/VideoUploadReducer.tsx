@@ -1,25 +1,31 @@
 import  React  from "react";
-import { VideoUploadModel, VideoModel } from "../../models/video-upload.model";
-
-interface IAction {
-    type :string;
-    video : VideoModel;
-}
-
+import { VideoUploadModel } from "../../models/video-upload.model";
+import { insertNewUserAnonym, createNewPlaylist, saveVideo, IAction } 
+        from "./VideoUploadAction";
+        
 const reducer = (state :VideoUploadModel = new VideoUploadModel(), action :IAction) : VideoUploadModel => {
-    switch(action.type){
-        case "ADD_VIDEO":
-            state.Videos.push(action.video)
-            return state;
-        case "SAVE_VIDEO":
-            return state;
-        default:
-            return state;
+    const { User, Playlist } = state;
+    
+    if(action.type === "SAVE_VIDEO"){
+        if(User.user_id === "") insertNewUserAnonym(state)
+
+        if(Playlist.category_id === ""){
+            if(Playlist.title === "" || Playlist.description === "")
+                return state;
+            else
+                createNewPlaylist(state);
+        }
+
+        saveVideo(state)        
+        return state;
+    }else{
+        return state;
     }
 }
 
-export const ContextVideoUpload = React.createContext<any>(new VideoUploadModel());
 
+
+export const ContextVideoUpload = React.createContext<any>(new VideoUploadModel());
 export const ProviderVideoUpload = ({children}:any) => {
     const contextValue = React.useReducer<React.Reducer<VideoUploadModel, IAction>>(reducer, new VideoUploadModel());
     return(

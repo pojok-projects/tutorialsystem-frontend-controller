@@ -29,7 +29,7 @@ const BrowseVideoUpload = ({ input, previews, dropzoneProps, files, extra: { max
     let [  videoState, setVideo ] = React.useState(new VideoModel())
 
     const onSaveVideo = () =>{
-      dispatch({ type : "ADD_VIDEO", video : videoState });
+      dispatch({ type : "SAVE_VIDEO", video : videoState });
       console.log("state ctx", ctxState, " - ", videoState)
     }
 
