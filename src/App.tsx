@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Wrapper from "./components/container/Wrapper";
 import NotFound from "./components/container/NotFound";
 import DrawerMenu from "./components/drawer/Drawer";
+import AboutContent from "./components/about-us/AboutContent";
 import VideoGallery from "./components/video-gallery/VideoGallery";
 import {
   BrowserRouter as Router,
@@ -37,6 +38,7 @@ export default class App extends React.Component {
           <Route path="/video-playlist" component={VideoPlaylist} />
           <Route path="/view" component={Wrapper} />
           <Route path="/upload" component={VideoUpload} />
+          <Route path="/visi-misi" component={AboutContent} />
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={NotFound} />
         </Switch>
