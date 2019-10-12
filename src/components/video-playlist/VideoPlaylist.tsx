@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
 import Avatar from "@material-ui/core/Avatar";
+import Comment from '../comment/Comment'
 import "./video-playlist.css";
 
 // Icon
@@ -19,6 +20,7 @@ import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import { Link } from "react-router-dom";
 
 export class VideoPlaylist extends Component {
+  
   render() {
     return (
       <Container maxWidth="lg" className="wrapper">
@@ -86,6 +88,10 @@ export class VideoPlaylist extends Component {
                 </Col>
               </Row>
             </Col>
+            {/* <br />
+            <Col md={8} xs={12}>
+              <Comment />
+            </Col> */}
           </CardContent>
         </Card>
       </Container>
