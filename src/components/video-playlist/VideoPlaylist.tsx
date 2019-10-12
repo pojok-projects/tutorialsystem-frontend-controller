@@ -1,30 +1,28 @@
-import React, { Component } from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Container from "@material-ui/core/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Alert from "react-bootstrap/Alert";
-import Avatar from "@material-ui/core/Avatar";
-import Comment from '../comment/Comment'
-import "./video-playlist.css";
+import React, {Component} from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Container from '@material-ui/core/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Alert from 'react-bootstrap/Alert';
+import Avatar from '@material-ui/core/Avatar';
+import './video-playlist.css';
 
 // Icon
-import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import ThumbDownIcon from "@material-ui/icons/ThumbDown";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import Forward from "@material-ui/icons/Reply";
-import Comment from "@material-ui/icons/QuestionAnswer";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import Forward from '@material-ui/icons/Reply';
+import QuestionAnswer from '@material-ui/icons/QuestionAnswer';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 export class VideoPlaylist extends Component {
-  
   render() {
     return (
       <Container maxWidth="lg" className="wrapper">
-        <Card style={{ borderRadius: "25px" }}>
+        <Card style={{borderRadius: '25px'}}>
           <CardContent>
             <Col xs={12}>
               <Row>
@@ -64,22 +62,22 @@ export class VideoPlaylist extends Component {
                         <span>200</span>
                       </div>
                     </Col>
-                    <Col md={{ span: 2, offset: 1 }}>
+                    <Col md={{span: 2, offset: 1}}>
                       <div className="icon2" id="forward">
                         <Forward fontSize="default" />
                       </div>
                     </Col>
-                    <Col md={{ span: 2 }}>
+                    <Col md={{span: 2}}>
                       <div className="icon2">
-                        <Comment fontSize="default" />
+                        <QuestionAnswer fontSize="default" />
                       </div>
                     </Col>
-                    <Col md={{ span: 2 }}>
+                    <Col md={{span: 2}}>
                       <div className="icon2">
                         <PlaylistAddIcon fontSize="default" />
                       </div>
                     </Col>
-                    <Col md={{ span: 1 }}>
+                    <Col md={{span: 1}}>
                       <div id="dotthree">
                         <MoreHorizIcon fontSize="large" />
                       </div>
@@ -113,7 +111,7 @@ class ListVideo extends Component {
           <UserUpload />
           <Col
             xs={12}
-            style={{ padding: "0", maxHeight: "270px", overflowY: "scroll" }}
+            style={{padding: '0', maxHeight: '270px', overflowY: 'scroll'}}
           >
             <Col xs={12}>
               {[0, 1, 2, 3, 4, 5].map(value => (
