@@ -1,20 +1,21 @@
 export class UserModel {
-    user_id :string = "";
-    name :string = "";
-    email :string = "";
-    first_name :string = "";
-    last_name :string = "";
-    birth_date :Date = new Date();
-    gender :string = "";
-    photo_profile :string = "";
-    about :string = "";
-    website_link :string = "";
-    facebook_link :string = "";
-    twitter_link :string = "";
-    linkedin_link :string = "";
+    user_id :string = "e63d1115-8c27-4809-a01b-4cf511ede82c";
+    // name :string = "";
+    // email :string = "";
+    // first_name :string = "";
+    // last_name :string = "";
+    // birth_date :Date = new Date();
+    // gender :string = "";
+    // photo_profile :string = "";
+    // about :string = "";
+    // website_link :string = "";
+    // facebook_link :string = "";
+    // twitter_link :string = "";
+    // linkedin_link :string = "";
 }
 
 export class VideoModel{
+    metadataid :string = "";
     user_id :string = "";
     video_title :string = "";
     video_description :string = "";
@@ -36,7 +37,7 @@ export class PlaylistModel {
     title :string = "";
     description :string = "";
     status :string = "";
-    IsCreated :boolean = false;
+    isCreated = () => !(this.user_id === "" || this.category_id === "" || this.title === "" || this.description === "")
 }
 
 export class VideoUploadModel  {

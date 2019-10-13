@@ -1,22 +1,16 @@
 import  React  from "react";
 import { VideoUploadModel } from "../../models/video-upload.model";
-import { insertNewUserAnonym, createNewPlaylist, saveVideo, IAction } 
-        from "./VideoUploadAction";
+import { insertVideosAction, updateVideosAction, IAction } from "./VideoUploadAction";
         
 const reducer = (state :VideoUploadModel = new VideoUploadModel(), action :IAction) : VideoUploadModel => {
     const { User, Playlist } = state;
     
     if(action.type === "SAVE_VIDEO"){
-        if(User.user_id === "") insertNewUserAnonym(state)
-
-        if(Playlist.category_id === ""){
-            if(Playlist.title === "" || Playlist.description === "")
-                return state;
-            else
-                createNewPlaylist(state);
+       if(Playlist.isCreated()){
+            insertVideosAction(state);        
+        }else{
+            updateVideosAction(state);
         }
-
-        saveVideo(state)        
         return state;
     }else{
         return state;
