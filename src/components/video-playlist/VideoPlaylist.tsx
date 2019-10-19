@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
 import Avatar from "@material-ui/core/Avatar";
-import Comment from '../comment/Comment'
 import "./video-playlist.css";
 
 import { Link } from "react-router-dom";

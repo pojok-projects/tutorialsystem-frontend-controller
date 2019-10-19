@@ -39,7 +39,7 @@ export const savePlaylistCategory = (payload :PlaylistModel) => {
     .then(res => res.json())
 }
 
-export const savePlaylist = (userid :string, metadataid :string, categoryid :string) => {
+export const saveVideotoPlaylist = (userid :string, metadataid :string, categoryid :string) => {
     return fetch(`https://api.tutorialinaja.tech/pm/v1/playlists/${userid}/create`, {
         headers: {
             "Accept": "application/json",
@@ -51,7 +51,7 @@ export const savePlaylist = (userid :string, metadataid :string, categoryid :str
     .then(res => res.json())
 }
 
-export const uploadVideo = (payload :string) => {
+export const uploadVideo = (payload :FormData) => {
     return fetch("https://private-anon-8eff540bc7-vam58.apiary-mock.com/vam/v1/upload", {
         headers: {
             "Accept": "application/json",
@@ -60,7 +60,9 @@ export const uploadVideo = (payload :string) => {
         method: "POST",
         body: payload
     })
-    .then(res => res.json())
+    .then(res => {
+        return res.json()
+    })
 }
 
 export const getCategories = () => {

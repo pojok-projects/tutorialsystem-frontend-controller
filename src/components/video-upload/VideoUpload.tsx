@@ -41,7 +41,7 @@ const FormPlaylistComponent = ({open,handleClose } :any) => {
         Playlist: {...Playlist, [type]: value }
       }));
   }
-
+ 
   const onCreatePList = () => {
     setLoading(true);
 
@@ -127,8 +127,8 @@ class VideoUploadComponent extends Component {
       Videos: [...state.Videos, video]
     })
 
-    // if(state.Playlist.category_id === "")
-    //   this.setState({isDisplayFormPList:true})
+    if(state.Playlist.category_id === "")
+      this.setState({isDisplayFormPList:true})
   }
 
 

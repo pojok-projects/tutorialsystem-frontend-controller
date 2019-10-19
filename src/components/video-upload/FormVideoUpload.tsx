@@ -3,6 +3,7 @@ import { Paper, Grid, Button, LinearProgress, TextField, Typography, Chip } from
 import PublicIcon from '@material-ui/icons/Public';
 import { VideoModel, VideoUploadModel } from "../../models/video-upload.model";
 import { ContextVideoUpload } from "./VideoUploadContext";
+import { saveVideo, uploadVideo, saveVideotoPlaylist } from "../../controllers/video-manager.controller";
 
 type FormVideoUploadProps = {
   video: VideoModel;
@@ -11,11 +12,12 @@ type FormVideoUploadProps = {
 
 
 class FormVideoUploadComponent extends Component<FormVideoUploadProps> {
-
-
-  componentDidMount(){
-    console.log("video :", this.props.video)
+  
+  state = {
+    isLoading: true
   }
+
+  
 
   handleChageInputField = (value :any, type :string) => {
     const [ stateCtx, setState ] :[VideoUploadModel, React.Dispatch<React.SetStateAction<VideoUploadModel>>]
@@ -23,8 +25,8 @@ class FormVideoUploadComponent extends Component<FormVideoUploadProps> {
     const { id } = this.props;
 
     const setTitleorDesc = (video :VideoModel, idx :number) :VideoModel => {
-      if(type === "Title" && idx == id) video.video_title = value;
-      if(type === "Description" && idx == id) video.video_description = value;
+      if(type === "Title" && idx === id) video.video_title = value;
+      if(type === "Description" && idx === id) video.video_description = value;
       return video;
     }
 
@@ -33,8 +35,51 @@ class FormVideoUploadComponent extends Component<FormVideoUploadProps> {
     ))
   }
   
-  onSaveVideo = () :void => {
+  onUploadVideo = () :void => {
+    const formData = new FormData();
+    formData.append("file", this.props.video);
+    
+    this.setState({isLoading:true})
+    uploadVideo(formData)
+    .then(({result} :any) =>{
+      const video :VideoModel = result;
+      this.onSaveVideo(video);
+    })
+    .catch(err => alert(err.message || "an error occured."))
+    .finally(() => this.setState({isLoading:false}))
+    
+  }
 
+  onSaveVideo = (video :VideoModel) => {
+    const [ stateCtx ] :[VideoUploadModel, React.Dispatch<React.SetStateAction<VideoUploadModel>>]
+    = this.context;
+    const { userid, category_id } = stateCtx.Playlist;
+
+    video.user_id = userid;
+    video.video_title = this.props.video.video_title;
+    video.video_description = this.props.video.video_description;
+    video.category_id = category_id;
+    video.privacy = "Publik";
+
+    this.setState({isLoading:false})
+    saveVideo(video)
+    .then(({result} :any) =>{ 
+      this.onSaveVideotoPlaylist(result.id)
+    })
+    .catch(err => alert(err.message || "an error occured."))
+    .finally(() => this.setState({isLoading:false}))
+  }
+
+ 
+  onSaveVideotoPlaylist = (metadataId :string) => {
+    const [ stateCtx ] :[VideoUploadModel, React.Dispatch<React.SetStateAction<VideoUploadModel>>]
+    = this.context;
+    const { userid, category_id } = stateCtx.Playlist;
+
+    this.setState({isLoading:false})
+    saveVideotoPlaylist(userid,metadataId, category_id)
+    .catch(err => alert(err.message || "an error occured."))
+    .finally(() => this.setState({isLoading:false}))
   }
 
   render(){
@@ -65,7 +110,7 @@ class FormVideoUploadComponent extends Component<FormVideoUploadProps> {
         </Grid>
         <Grid item xs={12} sm={9}>
           <Grid container direction="column" className="form-video-upload" >
-            <LinearProgress style={{ height: "25px" }} />
+            {this.state.isLoading ? <LinearProgress  style={{ height: "25px" }} /> : null }
             <TextField
               fullWidth
               label="Title"
@@ -82,7 +127,7 @@ class FormVideoUploadComponent extends Component<FormVideoUploadProps> {
             />
             <Grid container justify="flex-end">
               <Button 
-                onClick={this.onSaveVideo}
+                onClick={this.onUploadVideo}
                 variant="contained" 
                 color="primary">Save</Button>
             </Grid>

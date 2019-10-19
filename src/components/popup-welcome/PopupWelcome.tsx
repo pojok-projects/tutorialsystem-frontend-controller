@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, DialogContentText, Dialog, DialogActions, DialogContent, DialogTitle, Slide } 
+import { Button, Grid, Dialog, DialogActions, DialogContent, DialogTitle, Slide } 
     from '@material-ui/core';
 import { TransitionProps } from '@material-ui/core/transitions';
 
