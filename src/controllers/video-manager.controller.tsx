@@ -28,7 +28,7 @@ export const saveVideo = (payload :VideoModel) => {
 }
 
 export const savePlaylistCategory = (payload :PlaylistModel) => {
-    return fetch("https://api.tutorialinaja.tech/pm/v1/category/store", {
+    return fetch("https://api.tutorialinaja.tech/pm/v1/category/create", {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
@@ -61,4 +61,9 @@ export const uploadVideo = (payload :string) => {
         body: payload
     })
     .then(res => res.json())
+}
+
+export const getCategories = () => {
+    return fetch("https://api.tutorialinaja.tech/catm/v1/category")
+            .then(res => res.json());
 }
