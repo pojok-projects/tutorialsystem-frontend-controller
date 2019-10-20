@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, Dialog, DialogActions, DialogContent, DialogTitle, Slide } 
+import { Button, Grid, Dialog, DialogActions, DialogContent, DialogTitle, Slide,DialogContentText } 
     from '@material-ui/core';
 import { TransitionProps } from '@material-ui/core/transitions';
 
@@ -41,8 +41,10 @@ export default class PopupWelcome extends React.Component {
                     </Grid>
                 </DialogTitle>
                 <DialogContent>
+                    <DialogContentText>
                 selamat datang di tutorialinaja.com.
                 didalam website ini anda dapat mencari berbagai macam tutorial yang anda butuhkan dengan cepat dan mudah, serta video yang disajikan juga unik dan menarik.
+                </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                 <Button onClick={this.handleClose} color="primary">
