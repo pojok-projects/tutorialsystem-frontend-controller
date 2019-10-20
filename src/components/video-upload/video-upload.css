@@ -1,90 +1,39 @@
-.video-upload-border {
+.video-upload{
+    padding: 15px 0;
     border: 3px dashed #ccc;
     border-radius: 5px;
-    margin: 3% !important;
-    padding: 15px 0;
-    padding-top: 60px;
-    width: auto !important;
+    margin: 3% auto 0 auto;
+    transition: all 0.8s ease;
 }
-.video-upload {
-    width : 100%;
-    display: flex;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.video-upload-border-none{
+    border-style: none;
 }
-
-.video-upload .dzu-dropzone{ border: none; overflow: hidden; }
-.video-upload-content-form{ margin-top: 10px; }
-.video-upload .video-upload-content-form{ text-align: center;  }
-.video-upload .video-upload-img{ width: 200px; }
-.video-upload-preview{
-    padding: 20px 15px;
-    border: 1px solid #ccc;
+.form-browse{ display: flex; cursor: pointer; }
+.form-browse [type="file"]{
+    display: none;
 }
-.video-upload-preview:hover {
-    border-color: #650e0e;
-}
-.video-upload .video-upload-loading{ height: 10px; }
-.video-upload-content-form button {
-    text-transform: capitalize;
+.form-browse button{
+    cursor: pointer;
     background: #eb5757;
     color: #fff;
-    padding: 5px;
+    text-transform: capitalize;
+    padding: 3px 5px;
 }
 
-.watch-video video{
-    border-radius: 25px;
-    box-sizing: border-box;
-    width: 100%;
-    cursor: pointer;
+.form-video-upload >*{
+    margin-bottom: 10px !important;
 }
-
-.dzu-inputLabelWithFiles{
-    background: #fff;
+.add-video-btn {
+    background: #dc6565;
+    color: #fff;
+    padding: 7px 6px;
+    border-radius: 5px;
     box-shadow: 0 2px 2px #ccc;
-    color: #666;
-}
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    border-radius: 20px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
-/* style={{padding: '0',maxHeight: '375px',overflowY: 'scroll'}} */
-
-.grid-video:hover {
-    background: #CCE5FF;
-    cursor: pointer;
-} 
-
-.grid-video {
-    border-radius: 15px;
 }
 
 @media(max-width: 600px){
-    .video-upload-border{ margin: 10px; }
-    .video-upload-content-form >span{
-        display: none;
-    }
-
-    .video-upload .video-upload-img{
-        max-width: 100px;
-        margin-bottom: 20px;
+    .video-upload {
+        margin: 3% 5px 0 5px !important;
+        width: auto !important;
     }
 }

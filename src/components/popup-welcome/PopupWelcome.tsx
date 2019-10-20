@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, DialogContentText, Dialog, DialogActions, DialogContent, DialogTitle, Slide } 
+import { Button, Grid, Dialog, DialogActions, DialogContent, DialogTitle, Slide } 
     from '@material-ui/core';
 import { TransitionProps } from '@material-ui/core/transitions';
 
@@ -41,10 +41,11 @@ export default class PopupWelcome extends React.Component {
                     </Grid>
                 </DialogTitle>
                 <DialogContent>
-                <DialogContentText>
+                {/* <DialogContentText>
+                    
                     Let Google help apps determine location. This means sending anonymous location data to
                     Google, even when no apps are running.
-                </DialogContentText>
+                </DialogContentText> */}
                 </DialogContent>
                 <DialogActions>
                 <Button onClick={this.handleClose} color="primary">
