@@ -65,7 +65,7 @@ export default class VideoGallery extends React.Component {
                       <Grid item xs>
                         <Grid container direction="column" className="video-gallery-title">
                           <Typography variant="subtitle2" >
-                              <Link to={"/video-playlist/" +'id/'+ value.id}>
+                              <Link to={"/video-playlist/"}>
                                 {value.description}
                               </Link>
                           </Typography>
