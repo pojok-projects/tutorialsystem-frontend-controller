@@ -10,13 +10,14 @@ import Recomended from "../recomended/Recomended";
 import PopupWelcome from "../popup-welcome/PopupWelcome";
 import AboutUs from "../about-us/AboutUs";
 import {PlayListController} from "../../controllers/playlist-controller";
+import ProgressHome from "../progress/ProgressHome"
 
 export default class VideoGallery extends React.Component {
   
   state = {
     isCloseAbout : false,
     data:[],
-    loading:false
+    loading:true
   }
 
   closeAboutUs = () => {
@@ -35,10 +36,12 @@ export default class VideoGallery extends React.Component {
 
   render() {
     const {loading,data} = this.state
-    console.log(data)
+    // console.log(data)
     
     if(loading){
-      return(<p>loading....</p>)
+      return(
+        <ProgressHome />
+      )
     }
     return (
       <Container maxWidth="lg" className="wrapper">
