@@ -35,7 +35,7 @@ export default class App extends React.Component {
         <main>
         <Switch>
           <Route exact path="/" component={VideoGallery} />
-          <Route path="/video-playlist" component={VideoPlaylist} />
+          <Route path="/video-playlist/:id" component={VideoPlaylist} />
           <Route path="/view" component={Wrapper} />
           <Route path="/upload" component={VideoUpload} />
           <Route path="/visi-misi" component={AboutContent} />
