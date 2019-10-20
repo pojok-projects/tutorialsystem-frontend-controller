@@ -41,10 +41,9 @@ export default class PopupWelcome extends React.Component {
                     </Grid>
                 </DialogTitle>
                 <DialogContent>
-                {/* <DialogContentText>
-                    
-                    Let Google help apps determine location. This means sending anonymous location data to
-                    Google, even when no apps are running.
+                {<DialogContentText>
+                    selamat datang di tutorialinaja,
+                    didalam website ini anda dapat mencari berbagai macam tutorial yang anda butuhkan dengan cepat dan mudah, serta video yang disajikan juga unik dan menarik 
                 </DialogContentText> */}
                 </DialogContent>
                 <DialogActions>
