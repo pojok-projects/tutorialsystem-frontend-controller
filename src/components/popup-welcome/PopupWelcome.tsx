@@ -41,7 +41,7 @@ export default class PopupWelcome extends React.Component {
                     </Grid>
                 </DialogTitle>
                 <DialogContent>
-                selamat datang di tutorialinaja.com
+                selamat datang di tutorialinaja.com.
                 didalam website ini anda dapat mencari berbagai macam tutorial yang anda butuhkan dengan cepat dan mudah, serta video yang disajikan juga unik dan menarik.
                 </DialogContent>
                 <DialogActions>
