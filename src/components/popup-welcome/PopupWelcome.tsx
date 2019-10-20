@@ -42,7 +42,7 @@ export default class PopupWelcome extends React.Component {
                 </DialogTitle>
                 <DialogContent>
                 selamat datang ditutorialinaja.
-                didalam website ini anda dapat mencari berbagai macam tutorial yang anda butuhkan dengan cepat dan mudah, serta video yang disajikan juga unik dan menarik
+                didalam website ini anda dapat mencari berbagai macam tutorial yang anda butuhkan dengan cepat dan mudah, serta video yang disajikan juga unik dan menarik.
                 </DialogContent>
                 <DialogActions>
                 <Button onClick={this.handleClose} color="primary">
