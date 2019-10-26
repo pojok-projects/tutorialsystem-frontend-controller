@@ -2,29 +2,39 @@
     margin-bottom: 50px;
 }
 
-.playlist-category {
-    margin: 15px auto 5px 25px;
-    display: inline-block;
+.video-player { background: #000; }
+.video-player video{
+    width: 100%;
+    height: 100%;
+    border-radius: unset;
+    box-shadow: unset;
+}
+.playlist-category { margin-left: 20px; }
+.playlist-category-title {
+    padding: 10px 3px 10px 25px;
 }
 
-.content-pl-item{
-    height: 350px;
+.playlist-content{
+    height: 379px;
     overflow-y:auto;
     flex-wrap: nowrap !important;
+    box-shadow: inset 0px 1px 2px #ccc
 }
 .playlist-item{
-    padding: 10px;
-    padding-left: 25px;
-    cursor: pointer;
+    width: 100%;
+    padding: 10px !important;
+    padding-left: 25px  !important;
+    text-align: left;
 }
 .playlist-item:hover{
     background: #900e0e1c;
 }
 .playlist-item-thumbnail {
     position: relative;
+    height: 60px;
 }
 
-.pl-i-duration{
+.playlist-i-duration{
     position: absolute;
     color: #fff;
     background: #0000006b;
@@ -39,23 +49,83 @@
     margin-left: 10px !important;
 }
 
-.pl-i-toolbar {margin-top: 15px;}
-.pl-i-toolbar button{
+
+.playlist-i-toolbar {margin-top: 15px;}
+.playlist-i-toolbar button{
     border-radius: 10px;
     background: #e9dbdb;
     color: #4f4848;
     padding: 5px 10px;
 }
-.pl-i-toolbar button.red{
+.playlist-i-toolbar button.red{
     background: #c35151;
     color: #fff;
 }
 
+.playlist-user {
+    margin: 25px 0;
+    padding: 10px 0;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+.playlist-description{
+    margin: 15px 0 !important;
+    border-top: 1px solid #dfdfdf;
+    padding-top: 10px;
+}
 .btn-red{
     color: #fff !important;
     background: #c35151 !important;
 }
 
-.MuiTypography-body2, .MuiTypography-subtitle1 {
-    color: #666 !important;
+.text-grey {
+    color: #a19999 !important;
+}
+
+.btn-comment {
+    float: right;
+    margin-top: 5px !important;
+}
+
+@media(max-width: 960px){
+
+    .playlist-content {
+        height: 225px;
+    }
+
+    .playlist-category {
+        margin: 20px 0;
+    }
+}
+
+@media(max-width: 600px){
+    .wrapper{
+        margin-top: 0 !important;
+        padding: 0 !important;
+    }
+
+    .playlist-category {
+        margin: 0px;
+        border-radius: unset !important;
+        background: #c35151 !important;
+        color: #fff !important;
+    }
+
+    .playlist-category .text-grey {
+        color:  #e8cdcd !important;
+    }
+
+    .palylist-toolbar{
+        padding:10px;
+    }
+
+    .playlist-i-toolbar  button span.MuiButton-label{
+        display: flex;
+        flex-direction: column;
+        height: 48px;
+    }
+    .playlist-i-toolbar  button{
+        min-width: 57px;
+        border-radius: 25px;
+    }
 }
