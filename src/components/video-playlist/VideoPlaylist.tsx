@@ -20,7 +20,7 @@ export class VideoPlaylist extends Component {
 
   render() {
     return (
-      <Container maxWidth="lg" className="wrapper">
+      <Container maxWidth="lg" className="videoplaylist">
         <Grid container justify="space-between">
           <Grid item xs={12} md={8} className="video-player">
             <video  src="/assets/sample.mp4" controls></video>
