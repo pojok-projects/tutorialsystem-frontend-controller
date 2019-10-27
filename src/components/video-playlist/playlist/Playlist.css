@@ -1,0 +1,35 @@
+.playlist-category { margin-left: 20px; }
+.playlist-category-title {
+    padding: 10px 3px 10px 25px;
+}
+
+.playlist-content{
+    height: 379px;
+    overflow-y:auto;
+    flex-wrap: nowrap !important;
+    box-shadow: inset 0px 1px 2px #ccc
+}
+
+@media(max-width: 960px){
+
+    .playlist-content {
+        height: 225px;
+    }
+
+    .playlist-category {
+        margin: 20px 0;
+    }
+}
+@media(max-width: 600px){
+    .playlist-category {
+        margin: 0px;
+        border-radius: unset !important;
+        background: #c35151 !important;
+        color: #fff !important;
+    }
+
+    .playlist-category .text-grey {
+        color:  #e8cdcd !important;
+    }
+
+}

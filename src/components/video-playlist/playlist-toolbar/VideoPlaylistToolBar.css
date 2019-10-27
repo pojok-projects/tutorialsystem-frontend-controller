@@ -1,0 +1,27 @@
+.playlist-i-toolbar {margin-top: 15px;}
+.playlist-i-toolbar button{
+    border-radius: 10px;
+    background: #e9dbdb;
+    color: #4f4848;
+    padding: 5px 10px;
+}
+.playlist-i-toolbar button.red{
+    background: #c35151;
+    color: #fff;
+}
+
+@media(max-width: 600px){
+    .palylist-toolbar{
+        padding:10px;
+    }
+
+    .playlist-i-toolbar  button span.MuiButton-label{
+        display: flex;
+        flex-direction: column;
+        height: 48px;
+    }
+    .playlist-i-toolbar  button{
+        min-width: 57px;
+        border-radius: 25px;
+    }
+}
