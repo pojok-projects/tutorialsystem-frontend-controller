@@ -188,6 +188,41 @@ class VideoPlaylistUser extends Component {
 class VideoPlaylistFieldComment extends Component {
 
   state = {
+    isDisplayComment : true
+  }
+
+  onToggleComment = () => {
+    this.setState({isDisplayComment: !this.state.isDisplayComment})
+  }
+  render() {
+    const {isDisplayComment} = this.state;
+
+    return (
+      <Grid container direction="column" spacing={2}>
+        <Grid item container alignItems="center" >
+          <Typography variant="h6">
+            <ButtonBase>394 Komentar</ButtonBase>
+          </Typography> &nbsp;
+          <IconButton onClick={this.onToggleComment} className="text-grey"> <SortIcon />
+          {isDisplayComment?<ExpandMoreIcon />:<ExpandLessIcon />}
+           </IconButton>
+        </Grid>
+        {isDisplayComment ?
+        <Grid container direction="column" className="playlist-coment">
+          <Grid item xs>
+            <ContentComment />
+            <VideoPlaylistComment />
+          </Grid>
+          
+        </Grid> : null }
+      </Grid>
+    )
+  }
+}
+
+class ContentComment extends Component {
+
+  state = {
     comment: ""
   }
 
@@ -200,13 +235,6 @@ class VideoPlaylistFieldComment extends Component {
 
     return (
       <Grid container direction="column" spacing={2}>
-        <Grid item container alignItems="center" >
-          <Typography variant="h6">
-            <ButtonBase>394 Komentar</ButtonBase>
-          </Typography> &nbsp;
-          <IconButton > <SortIcon /> </IconButton>
-        </Grid>
-        <Grid item container >
           <Grid item>
             <Avatar src="/assets/icon-user.png" alt="icon-user.png" style={{ marginRight: "10px" }} />
           </Grid>
@@ -221,9 +249,6 @@ class VideoPlaylistFieldComment extends Component {
             
           </Grid> 
         </Grid>
-        <VideoPlaylistComment />
-        <VideoPlaylistComment />
-      </Grid>
     )
   }
 }
