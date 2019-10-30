@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
@@ -10,26 +10,19 @@ import Recomended from "../recomended/Recomended";
 import PopupWelcome from "../popup-welcome/PopupWelcome";
 import AboutUs from "../about-us/AboutUs";
 import { getAllPlaylist } from "../../controllers/playlist-controller";
-import ProgressHome from "../progress/ProgressHome"
-
-
-type PlaylistState = {
-  playlist_id :string;
-  title :string;
-  description :string;
-}
+import ProgressHome from "./ProgressHome"
 
 type videoGalleryState = {
   isCloseAbout :boolean;
-  playlists :PlaylistState[];
+  videoGalleryItems :VideoGalleryItemProp[];
   isLoading :boolean;
 }
 
-export default class VideoGallery extends React.Component {
+class VideoGallery extends React.Component {
   
   state :videoGalleryState = {
     isCloseAbout : false,
-    playlists:[],
+    videoGalleryItems:[],
     isLoading:true
   }
 
@@ -44,30 +37,27 @@ export default class VideoGallery extends React.Component {
   }
   
   setPlaylistFromAPI = (data :any) => {
-    
-    const setPlaylist = (acc :PlaylistState[], {category,lists} :any) => {
-      const convertListToPlaylist = (list :any) => {
-        const playlist :PlaylistState = { playlist_id: list.id, title: category.title, description: category.description }
-        return playlist;
-      }
-      const playlists :PlaylistState[] = lists.map(convertListToPlaylist)
-      acc = acc.concat(playlists)
-      return acc;
-    }
+    data  = data.map(({category, lists } :any) => 
+    (lists.map((p :any) => {
+      return({ 
+        playlistId: p.id, 
+        title: category.title, 
+        description: category.description
+      })
+    }))
+    );
 
-    const playlists :PlaylistState[] = data.reduce(setPlaylist, [])
-    this.setState({ playlists, isLoading  : false })
+    const videoGalleryItems :VideoGalleryItemProp[] = data.reduce( (acc :any, item :any) => acc.concat(item), [])
+    this.setState({ videoGalleryItems, isLoading  : false })
   }
 
   render() {
-    const {isLoading,playlists} = this.state
-    // console.log(playlists)
+    const {isLoading,videoGalleryItems} = this.state
     
     if(isLoading){
-      return(
-        <ProgressHome />
-      )
+      return(<ProgressHome />)
     }
+
     return (
       <Container maxWidth="lg" className="wrapper">
       <PopupWelcome />
@@ -75,37 +65,8 @@ export default class VideoGallery extends React.Component {
           <Grid item lg={8}>
             {this.state.isCloseAbout ? "" : <AboutUs onClose={this.closeAboutUs}/> }
             <Grid container spacing={3}>
-              {playlists.map((playlist :PlaylistState) => (
-                <Grid key={playlist.playlist_id} item xs={12} sm={6} md={4}>
-                  <Grid container direction="column" className="video-gallery">
-                    <Grid item xs className="video-gallery-thumbnail">
-                      <img src="/assets/recomended-thumbnail.jpg"  alt="recomended-thumbnail.jpg"  />
-                      <span className="video-gallery-duration">05:30s</span>
-                    </Grid>
-                    <Grid item xs>
-                    <Grid container alignItems="flex-start" justify="flex-start">
-                    <IconButton>
-                      <img src="/assets/icon-user.png" className="video-gallery-user" alt="icon-user.png" />
-                      </IconButton>
-                      <Grid item xs>
-                        <Grid container direction="column" className="video-gallery-title">
-                          <Typography variant="subtitle2" >
-                              <Link to={"/video-playlist/"}>
-                                {playlist.description}
-                              </Link>
-                          </Typography>
-                          <Typography variant="caption" >
-                          {playlist.title}
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <IconButton>
-                        <MorevertIcon />
-                       </IconButton>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
+              {videoGalleryItems.map((videoGalleryItem :VideoGalleryItemProp) => (
+                <VideoGalleryItem {...videoGalleryItem} />
               ))}
             </Grid>
           </Grid>
@@ -117,3 +78,52 @@ export default class VideoGallery extends React.Component {
     );
   }
 }
+
+
+type VideoGalleryItemProp = {
+  playlistId :string;
+  title :string;
+  description :string;
+}
+
+class VideoGalleryItem extends Component<VideoGalleryItemProp> {
+
+  render() {
+    const {playlistId, title, description} = this.props;
+
+    return(
+        <Grid key={playlistId} item xs={12} sm={6} md={4}>
+            <Grid container direction="column" className="video-gallery">
+              <Grid item xs className="video-gallery-thumbnail">
+                <img src="/assets/recomended-thumbnail.jpg"  alt="recomended-thumbnail.jpg"  />
+                <span className="video-gallery-duration">05:30s</span>
+              </Grid>
+              <Grid item xs>
+              <Grid container alignItems="flex-start" justify="flex-start">
+                <IconButton>
+                  <img src="/assets/icon-user.png" className="video-gallery-user" alt="icon-user.png" />
+                </IconButton>
+                <Grid item xs>
+                  <Grid container direction="column" className="video-gallery-title">
+                    <Typography variant="subtitle2" >
+                        <Link to={"/video-playlist/"}>
+                          {description}
+                        </Link>
+                    </Typography>
+                    <Typography variant="caption" >
+                    {title}
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <IconButton>
+                  <MorevertIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+    );
+  }
+}
+
+export default VideoGallery;
