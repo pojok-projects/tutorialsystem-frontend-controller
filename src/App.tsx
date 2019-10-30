@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Wrapper from "./components/container/Wrapper";
-import NotFound from "./components/container/NotFound";
+import ErrorMessage from "./components/container/ErrorMessage";
 import DrawerMenu from "./components/drawer/Drawer";
 import AboutContent from "./components/about-us/AboutContent";
 import VideoGallery from "./components/video-gallery/VideoGallery";
@@ -43,7 +43,7 @@ export default class App extends React.Component {
           <Route path="/upload" component={VideoUpload} />
           <Route path="/visi-misi" component={AboutContent} />
           <Redirect from="/index.html" to="/" />
-          <Route path="*" component={NotFound} />
+          <Route path="*" component={ErrorMessage} />
         </Switch>
         </main>
       </Router>

@@ -1,0 +1,16 @@
+
+.video-upload-browse{
+    margin: 20px;
+    width: calc(100% - 40px) !important;
+    height: calc(100% - 100px);
+}
+
+.video-upload-browse{
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+}
+
+.video-upload-browse h6{
+    margin: 10px;
+    text-align: center;
+}

@@ -10,12 +10,15 @@ import Recomended from "../recomended/Recomended";
 import PopupWelcome from "../popup-welcome/PopupWelcome";
 import AboutUs from "../about-us/AboutUs";
 import { getAllPlaylist } from "../../controllers/playlist-controller";
-import ProgressHome from "./ProgressHome"
+import ProgressHome from "./ProgressHome";
+import ErrorMessage from "../container/ErrorMessage";
 
 type videoGalleryState = {
   isCloseAbout :boolean;
   videoGalleryItems :VideoGalleryItemProp[];
   isLoading :boolean;
+  isError :boolean;
+  msgError :string;
 }
 
 class VideoGallery extends React.Component {
@@ -23,7 +26,9 @@ class VideoGallery extends React.Component {
   state :videoGalleryState = {
     isCloseAbout : false,
     videoGalleryItems:[],
-    isLoading:true
+    isLoading:true,
+    isError: false,
+    msgError : ""
   }
 
   closeAboutUs = () => {
@@ -34,28 +39,29 @@ class VideoGallery extends React.Component {
     getAllPlaylist()
     .then(res => res.data.data)
     .then(this.setPlaylistFromAPI)
+    .catch((err :any) => this.setState({ isError: true, msgError: err.message }) )
+    .finally(() => this.setState({ isLoading: false }) )
   }
   
   setPlaylistFromAPI = (data :any) => {
-    data  = data.map(({category, lists } :any) => 
-    (lists.map((p :any) => {
-      return({ 
-        playlistId: p.id, 
-        title: category.title, 
-        description: category.description
-      })
-    }))
-    );
+    data  = data.map(({category, lists } :any) => (lists.map((p :any) => {
+                      return({ 
+                        playlistId: p.id, 
+                        title: category.title, 
+                        description: category.description
+                      })})));
 
     const videoGalleryItems :VideoGalleryItemProp[] = data.reduce( (acc :any, item :any) => acc.concat(item), [])
-    this.setState({ videoGalleryItems, isLoading  : false })
+    this.setState({ videoGalleryItems })
   }
 
   render() {
-    const {isLoading,videoGalleryItems} = this.state
+    const {isLoading,videoGalleryItems,isError,msgError} = this.state
     
     if(isLoading){
       return(<ProgressHome />)
+    }else if(isError){
+      return (<ErrorMessage message={msgError} />)
     }
 
     return (

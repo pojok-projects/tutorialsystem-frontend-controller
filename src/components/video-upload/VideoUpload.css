@@ -1,0 +1,18 @@
+.video-upload{
+    padding: 10px 0;
+    margin: 20px 0;
+    min-height: 70vh;
+}
+
+.video-upload-header {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+    
+
+@media(max-width: 600px){
+    .video-upload{
+        margin-bottom: 70px;
+    }
+
+}
