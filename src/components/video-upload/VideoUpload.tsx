@@ -3,8 +3,7 @@ import { Container, Typography, Button, Grid, Dialog, DialogActions, Slide,
     DialogTitle, DialogContent, TextField  } from "@material-ui/core";
 import { TransitionProps } from '@material-ui/core/transitions';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import { VideoUploadModel } from "../../models/VideoUploadModel";
-import { VideoModel } from "../../models/VideoModel";
+import { VideoModel, VideoUploadModel } from "../../models/video-upload.model";
 import { getCategories, savePlaylistCategory } from "../../controllers/video-manager.controller";
 import FormVideoUploadComponent from "./FormVideoUpload";
 import { ProviderVideoUpload, ContextVideoUpload } from "./VideoUploadContext";
