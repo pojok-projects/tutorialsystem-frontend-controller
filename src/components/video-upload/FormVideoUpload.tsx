@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Paper, Grid, Button, LinearProgress, TextField, Typography, Chip } from "@material-ui/core";
 import PublicIcon from '@material-ui/icons/Public';
-import { VideoUploadModel } from "../../models/VideoUploadModel";
-import { VideoModel } from "../../models/VideoModel";
+import { VideoModel, VideoUploadModel } from "../../models/video-upload.model";
 import { ContextVideoUpload } from "./VideoUploadContext";
 import { saveVideo, uploadVideo, saveVideotoPlaylist } from "../../controllers/video-manager.controller";
 
