@@ -15,6 +15,7 @@ import {
 import VideoUpload from "./components/video-upload/VideoUpload";
 import VideoPlaylist from "./components/video-playlist/VideoPlaylist";
 
+
 export default class App extends React.Component {
   state = {
     open: false
@@ -23,6 +24,8 @@ export default class App extends React.Component {
   handleToggleMenu = () => {
     this.setState({ open: !this.state.open });
   };
+
+  
 
   render() {
     return (
@@ -35,7 +38,7 @@ export default class App extends React.Component {
         <main>
         <Switch>
           <Route exact path="/" component={VideoGallery} />
-          <Route path="/video-playlist/:id" component={VideoPlaylist} />
+          <Route path="/video-playlist" component={VideoPlaylist} />
           <Route path="/view" component={Wrapper} />
           <Route path="/upload" component={VideoUpload} />
           <Route path="/visi-misi" component={AboutContent} />
