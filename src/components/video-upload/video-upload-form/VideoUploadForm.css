@@ -14,6 +14,13 @@
     margin-top: 15px !important;
     margin-right: 10px !important;
 }
+.video-upload-form-thumbnail img { border-radius: 5px; }
+.video-upload-form-thumbnail.b-0{ padding: 0; }
+.b-0{ border: none !important; }
+.btn-publish{ 
+    background: #60d26c !important;
+    color: #fff !important;
+}
 
 @media(max-width: 600px){
     .video-upload-form-thumbnail{

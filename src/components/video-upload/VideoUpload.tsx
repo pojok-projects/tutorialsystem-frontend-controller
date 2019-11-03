@@ -6,7 +6,21 @@ import VideoUploadBrowse from "./video-upload-browse/VideoUploadBrowse";
 import VideoUploadForm from "./video-upload-form/VideoUploadForm";
 
 
+type VideoUploadState = {
+  video :File
+}
+
 class VideoUpload extends Component {
+
+  state = {
+    video : null
+  } 
+
+  onUpload = (ev :any) => {
+    const video = ev.target.files[0]
+    console.log(video)
+    this.setState({video})
+  }
 
   render() {
     return (
@@ -14,11 +28,11 @@ class VideoUpload extends Component {
         <Paper className="video-upload">
           <div className="video-upload-header">
             <Typography variant="h6">
-                Upload Video
+                Upload Video  
             </Typography>
           </div>
-          {/* <VideoUploadBrowse /> */}
-          <VideoUploadForm />
+          {this.state.video == null ? <VideoUploadBrowse onUpload={this.onUpload}/> 
+          : <VideoUploadForm /> }
         </Paper>
       </Container>
     );
