@@ -1,0 +1,29 @@
+.video-upload-form{
+  margin: 20px;
+  width: calc(100% - 40px) !important;
+  height: calc(100% - 100px);
+}
+.video-upload-form h6{ margin: 15px 0; }
+.video-upload-form u{ color: #c35151; }
+.video-upload-form-thumbnail{
+    width: 200px;
+    padding-top: 20px;
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    color: #999;
+    margin-top: 15px !important;
+    margin-right: 10px !important;
+}
+.video-upload-form-thumbnail img { border-radius: 5px; }
+.video-upload-form-thumbnail.b-0{ padding: 0; }
+.b-0{ border: none !important; }
+.btn-publish{ 
+    background: #60d26c !important;
+    color: #fff !important;
+}
+
+@media(max-width: 600px){
+    .video-upload-form-thumbnail{
+        max-width: calc(50% - 10px) !important;
+    }
+}

@@ -1,0 +1,28 @@
+.playlist-item{
+    width: 100%;
+    padding: 10px !important;
+    padding-left: 25px  !important;
+    text-align: left;
+}
+.playlist-item:hover{
+    background: #900e0e1c;
+}
+.playlist-item-thumbnail {
+    position: relative;
+    height: 60px;
+}
+
+.playlist-item-duration{
+    position: absolute;
+    color: #fff;
+    background: #0000006b;
+    padding: 2px 5px;
+    font-size: 13px;
+    font-weight: bolder;
+    right: 5px;
+    bottom: 5px;
+}
+
+.playlist-item-title {
+    margin-left: 10px !important;
+}
