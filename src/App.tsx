@@ -6,6 +6,7 @@ import ErrorMessage from "./components/container/ErrorMessage";
 import DrawerMenu from "./components/drawer/Drawer";
 import AboutContent from "./components/about-us/AboutContent";
 import VideoGallery from "./components/video-gallery/VideoGallery";
+import History from "./components/history/History";
 import {
   BrowserRouter as Router,
   Route,
@@ -25,7 +26,7 @@ export default class App extends React.Component {
     this.setState({ open: !this.state.open });
   };
 
-  
+
 
   render() {
     return (
@@ -42,6 +43,7 @@ export default class App extends React.Component {
           <Route path="/view" component={Wrapper} />
           <Route path="/upload" component={VideoUpload} />
           <Route path="/visi-misi" component={AboutContent} />
+          <Route path="/history" component={History} />
           <Redirect from="/index.html" to="/" />
           <Route path="*" component={ErrorMessage} />
         </Switch>
