@@ -22,7 +22,7 @@ type videoGalleryState = {
 }
 
 class VideoGallery extends React.Component {
-  
+
   state :videoGalleryState = {
     isCloseAbout : false,
     videoGalleryItems:[],
@@ -42,12 +42,12 @@ class VideoGallery extends React.Component {
     .catch((err :any) => this.setState({ isError: true, msgError: err.message }) )
     .finally(() => this.setState({ isLoading: false }) )
   }
-  
+
   setPlaylistFromAPI = (data :any) => {
     data  = data.map(({category, lists } :any) => (lists.map((p :any) => {
-                      return({ 
-                        playlistId: p.id, 
-                        title: category.title, 
+                      return({
+                        playlistId: p.id,
+                        title: category.title,
                         description: category.description
                       })})));
 
@@ -57,7 +57,7 @@ class VideoGallery extends React.Component {
 
   render() {
     const {isLoading,videoGalleryItems,isError,msgError} = this.state
-    
+
     if(isLoading){
       return(<ProgressHome />)
     }else if(isError){
@@ -65,7 +65,7 @@ class VideoGallery extends React.Component {
     }
 
     return (
-      <Container maxWidth="lg" className="wrapper">
+      <Container id="kacang" maxWidth="lg" className="wrapper coba">
       <PopupWelcome />
         <Grid container alignItems="flex-start" justify="center">
           <Grid item lg={8}>
